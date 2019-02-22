@@ -1,0 +1,15 @@
+{
+  "docs": {
+    "Tutorial": [
+      "tutorial/getting-started",
+      "tutorial/project-initialization",
+      "tutorial/install-tartiflette",
+      "tutorial/create-server",
+      "tutorial/running-a-query",
+      "tutorial/running-a-mutation"
+    ],
+    "API": [
+      "api/engine"
+    ]
+  }
+}
