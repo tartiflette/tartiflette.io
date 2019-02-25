@@ -25,6 +25,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
+    {doc: 'welcome/what-is-tartiflette', label: 'What is Tartiflette?'},
     {doc: 'tutorial/getting-started', label: 'Tutorial'},
     {doc: 'api/engine', label: 'API'},
     {page: 'community', label: 'Community'},
