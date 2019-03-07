@@ -20,7 +20,7 @@ const siteConfig = {
   baseUrl: '/', // Base URL for your project */
 
   // Used for publishing and more
-  projectName: 'tartiflette',
+  projectName: 'tartiflette.io',
   organizationName: 'dailymotion',
 
   // For no header links in the top nav bar -> headerLinks: [],
