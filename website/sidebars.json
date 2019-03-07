@@ -1,0 +1,38 @@
+{
+  "docs": {
+    "Welcome": [
+      "welcome/what-is-tartiflette"
+    ],
+    "Tutorial": [
+      "tutorial/getting-started",
+      "tutorial/project-initialization",
+      "tutorial/install-tartiflette",
+      "tutorial/create-server",
+      "tutorial/build-your-schema",
+      "tutorial/write-your-resolvers",
+      "tutorial/write-your-mutation-resolvers",
+      "tutorial/add-subscription",
+      "tutorial/running-a-query",
+      "tutorial/running-a-mutation",
+      "tutorial/running-a-subscription"
+    ],
+    "Tutorial (Advanced)": [
+      "tutorial/extend-with-directives",
+      "tutorial/secure-nodes-with-directives",
+      "tutorial/dynamic-introspection",
+      "tutorial/use-with-docker"
+    ],
+    "API": [
+      "api/engine",
+      "api/execution",
+      "api/resolver",
+      "api/subscription",
+      "api/directive",
+      "api/introspection"
+    ],
+    "API (aiohttp)": [
+      "api-aiohttp/getting-started",
+      "api-aiohttp/graphiql"
+    ]
+  }
+}
