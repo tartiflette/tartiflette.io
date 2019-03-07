@@ -8,17 +8,16 @@
       "tutorial/project-initialization",
       "tutorial/install-tartiflette",
       "tutorial/create-server",
-      "tutorial/build-your-schema",
       "tutorial/write-your-resolvers",
-      "tutorial/write-your-mutation-resolvers",
-      "tutorial/add-subscription",
       "tutorial/running-a-query",
+      "tutorial/write-your-mutation-resolvers",
       "tutorial/running-a-mutation",
+      "tutorial/add-subscription",
       "tutorial/running-a-subscription"
     ],
     "Tutorial (Advanced)": [
       "tutorial/extend-with-directives",
-      "tutorial/secure-nodes-with-directives",
+      "tutorial/rate-limit-fields-with-directives",
       "tutorial/dynamic-introspection",
       "tutorial/use-with-docker"
     ],
@@ -28,11 +27,10 @@
       "api/resolver",
       "api/subscription",
       "api/directive",
-      "api/introspection"
+      "api/schema-registry"
     ],
     "API (aiohttp)": [
-      "api-aiohttp/getting-started",
-      "api-aiohttp/graphiql"
+      "api-aiohttp/getting-started"
     ]
   }
 }
