@@ -94,6 +94,9 @@ const siteConfig = {
   // template. For example, if you need your repo's URL...
   repoUrl: 'https://github.com/dailymotion/tartiflette',
 
+  gaTrackingId: "UA-64443-60",
+  gaGtag: true,
+
   slackInviteWebsite: "http://slack-tartiflette-io.herokuapp.com",
   mediumUrl: "https://medium.com/dailymotion",
   twitterUsername: "dailymotionEng",
