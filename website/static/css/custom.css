@@ -58,7 +58,8 @@
     color: rgba(255, 255, 255, 0.4);
 }
 
-.wrapper .post a {
+.wrapper .post article a,
+.wrapper .blockContent a {
     display: inline-block;
     border-bottom: 2px solid #FFE74C; 
 }
