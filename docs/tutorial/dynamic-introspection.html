@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Dynamic introspection · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;One of the most powerful feature of GraphQL is to provide an introspection of its own Schema, which gives the developer the ability to build tools based on the result of the introspection. &lt;a href=&quot;https://github.com/graphql/graphiql&quot;&gt;The best example is GraphiQL, the GraphQL Explorer.&lt;/a&gt;.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Dynamic introspection · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/index.html"/><meta property="og:description" content="&lt;p&gt;One of the most powerful feature of GraphQL is to provide an introspection of its own Schema, which gives the developer the ability to build tools based on the result of the introspection. &lt;a href=&quot;https://github.com/graphql/graphiql&quot;&gt;The best example is GraphiQL, the GraphQL Explorer.&lt;/a&gt;.&lt;/p&gt;
+"/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/tartiflette-white.svg" alt="Tartiflette GraphQL Python Engine"/><h2 class="headerTitleWithLogo">Tartiflette GraphQL Python Engine</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/welcome/what-is-tartiflette" target="_self">What is Tartiflette?</a></li><li class="siteNavGroupActive"><a href="/docs/tutorial/getting-started" target="_self">Tutorial</a></li><li class="siteNavGroupActive"><a href="/docs/api/engine" target="_self">API</a></li><li class=""><a href="/community" target="_self">Community</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Tutorial (Advanced)</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/welcome/what-is-tartiflette">What is Tartiflette?</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/tutorial/getting-started">1. Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/project-initialization">2. Project initialization</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/install-tartiflette">3. Install Tartiflette</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/create-server">4. Create a Tartiflette instance</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/write-your-resolvers">5. Write your resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/write-your-mutation-resolvers">7. Write your mutation resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/add-subscription">9. Add subscription (advanced)</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/running-a-query">6. Running a Query</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/running-a-mutation">8. Running a Mutation</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/running-a-subscription">10. Running a Subscription</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial (Advanced)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/tutorial/extend-with-directives">11. Extend with directives</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/tutorial/dynamic-introspection">13. Dynamic introspection</a></li><li class="navListItem"><a class="navItem" href="/docs/tutorial/use-with-docker">14. Use with Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/api/engine">Engine</a></li><li class="navListItem"><a class="navItem" href="/docs/api/execution">Execution</a></li><li class="navListItem"><a class="navItem" href="/docs/api/resolver">Resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/api/subscription">Subscription</a></li><li class="navListItem"><a class="navItem" href="/docs/api/directive">Directive</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API (aiohttp)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/api-aiohttp/getting-started">Getting started</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/dailymotion/tartiflette/edit/master/docs/tutorial/dynamic-introspection.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Dynamic introspection</h1></header><article><div><span><p>One of the most powerful feature of GraphQL is to provide an introspection of its own Schema, which gives the developer the ability to build tools based on the result of the introspection. <a href="https://github.com/graphql/graphiql">The best example is GraphiQL, the GraphQL Explorer.</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="introspection-caveats"></a><a href="#introspection-caveats" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introspection caveats</h2>
+<h3><a class="anchor" aria-hidden="true" id="what-are-the-consequences"></a><a href="#what-are-the-consequences" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What are the consequences?</h3>
+<p>Most of the time, people building GraphQL APIs don't restrict the introspection which allows everyone to have detailed information about the schema. This potentially exposes fields, like administration or internal company fields, you would prefer to keep private.</p>
+<p>To solve this, we will use <strong>dynamic introspection</strong>. You will be able to update the result of the introspection query, based on your business rules and access control.</p>
+<p>You will be able to:</p>
+<ul>
+<li>Provide different introspection schemas based on your business rules (unlogged user, logged user, administrator)</li>
+<li>Completely remove some fields from the introspection</li>
+<li>Append some metadata to the introspection result</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="recipes-manager-directives-non-introspectablepy"></a><a href="#recipes-manager-directives-non-introspectablepy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>recipes_manager/directives/non_introspectable.py</strong></h2>
+<p>The idea of the following code is to create a new directive called &quot;@nonIntrospectable&quot; which allow you to hide some fields and/or types from the introspection query.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Any<span class="token punctuation">,</span> Callable<span class="token punctuation">,</span> Dict<span class="token punctuation">,</span> Optional
+
+<span class="token keyword">from</span> tartiflette<span class="token punctuation">.</span>directive <span class="token keyword">import</span> Directive
+<span class="token keyword">from</span> tartiflette<span class="token punctuation">.</span>directive <span class="token keyword">import</span> CommonDirective
+
+
+@Directive<span class="token punctuation">(</span><span class="token string">"nonIntrospectable"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">NonIntrospectable</span><span class="token punctuation">(</span>CommonDirective<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @<span class="token builtin">staticmethod</span>
+    <span class="token keyword">def</span> <span class="token function">on_introspection</span><span class="token punctuation">(</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        introspected_element<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        info<span class="token punctuation">:</span> <span class="token string">"Info"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment"># Improve the behavior of the introspection and</span>
+        <span class="token comment"># base it on:</span>
+        <span class="token comment"># - the directive arguments (directive_args)</span>
+        <span class="token comment"># - the context (ctx)</span>
+        <span class="token comment"># - the information Query (Schema, Query ...)</span>
+        <span class="token keyword">return</span> <span class="token boolean">None</span>
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="recipes-manager-sdl-mutationgraphql"></a><a href="#recipes-manager-sdl-mutationgraphql" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>recipes_manager/sdl/Mutation.graphql</strong></h2>
+<p>We will update the Mutation SDL by declaring and adding the <code>@nonIntrospectable</code> directive.</p>
+<pre><code class="hljs css language-python">directive @rateLimiting<span class="token punctuation">(</span>
+  name<span class="token punctuation">:</span> String
+  max_attempts<span class="token punctuation">:</span> Int <span class="token operator">=</span> <span class="token number">5</span>
+  duration<span class="token punctuation">:</span> Int <span class="token operator">=</span> <span class="token number">60</span>
+<span class="token punctuation">)</span> on FIELD_DEFINITION
+
+directive @nonIntrospectable on FIELD_DEFINITION
+
+<span class="token builtin">type</span> Mutation <span class="token punctuation">{</span>
+  updateRecipe<span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">:</span> RecipeInput!<span class="token punctuation">)</span><span class="token punctuation">:</span> Recipe @rateLimiting<span class="token punctuation">(</span>name<span class="token punctuation">:</span> <span class="token string">"update_recipe"</span><span class="token punctuation">)</span> @nonIntrospectable
+<span class="token punctuation">}</span>
+
+<span class="token builtin">input</span> RecipeInput <span class="token punctuation">{</span>
+  <span class="token builtin">id</span><span class="token punctuation">:</span> Int!
+  name<span class="token punctuation">:</span> String
+  cookingTime<span class="token punctuation">:</span> Int
+<span class="token punctuation">}</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="how-can-we-test-it"></a><a href="#how-can-we-test-it" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How can we test it?</h2>
+<p>In order to simulate the non introspectable feature. Be sure that your application is running.</p>
+<pre><code class="hljs css language-bash">$ python -m recipes_manager
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span> Running on http://0.0.0.0:8080 <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+<span class="token punctuation">(</span>Press CTRL+C to quit<span class="token punctuation">)</span>
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="graphql-query"></a><a href="#graphql-query" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GraphQL Query</h3>
+<p>Execute the following query to retrieve the list of mutation fields.</p>
+<ul>
+<li>Without the <code>@nonIntrospectable</code> you <strong>will</strong> see the <code>updateRecipe</code> field.</li>
+<li>With the <code>@nonIntrospectable</code> in your schema you <strong>won't</strong> see the <code>updateRecipe</code> field.</li>
+</ul>
+<pre><code class="hljs css language-graphql"><span class="token keyword">query</span> IntrospectionQuery <span class="token punctuation">{</span>
+  __type<span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"Mutation"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    kind
+    name
+    fields<span class="token punctuation">{</span>
+      name
+      description
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><img src="/docs/assets/nonintrospectable-directive.gif" alt="Non introspectable directive"></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/tutorial/secure-nodes-with-directives"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/tutorial/use-with-docker"><span>14. Use with Docker</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#introspection-caveats">Introspection caveats</a><ul class="toc-headings"><li><a href="#what-are-the-consequences">What are the consequences?</a></li></ul></li><li><a href="#recipes-manager-directives-non-introspectablepy"><strong>recipes_manager/directives/non_introspectable.py</strong></a></li><li><a href="#recipes-manager-sdl-mutationgraphql"><strong>recipes_manager/sdl/Mutation.graphql</strong></a></li><li><a href="#how-can-we-test-it">How can we test it?</a><ul class="toc-headings"><li><a href="#graphql-query">GraphQL Query</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/tartiflette-square-t-white.svg" alt="Tartiflette GraphQL Python Engine" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/tutorial/getting-started">Tutorial</a><a href="/docs/en/api/engine">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/tartiflette" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="http://slack-tartiflette-io.herokuapp.com">Join us on Slack</a><a href="https://twitter.com/dailymotionEng" target="_blank" rel="noreferrer noopener">Twitter @dailymotionEng</a></div><div><h5>More</h5><a href="https://github.com/dailymotion/tartiflette">GitHub</a><a class="github-button" href="https://github.com/dailymotion/tartiflette" data-icon="octicon-star" data-count-href="/dailymotion/tartiflette/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://dailymotion.com" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dailymotion-white.svg" alt="Dailymotion"/></a><section class="copyright">Copyright © 2019 Dailymotion<br/>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
