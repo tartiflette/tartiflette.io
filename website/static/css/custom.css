@@ -1,26 +1,106 @@
-@media only screen and (min-width: 480px) {  
-    .projectTitle img {
+@media only screen and (min-width: 100px) {  
+    .projectTitle .main {
         height: 1.2em;
         display: block;
         margin: 0 auto;
     }
-  }
-  
-  @media only screen and (min-width: 736px) {
-    .projectTitle img {
-        height: 1.5em;
+    .projectTitle > small {
+        margin-bottom: 0.8em;
+    }
+    .projectTitle .by {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.2em;
+    }
+    .projectTitle .by span {
+        font-size: 0.6em;
+        padding-right: 0.4em; 
+    }
+    .projectTitle .dailymotionLogo {
+        height: 0.8em;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
     }
   }
   
-  @media only screen and (min-width: 1200px) {  
-    .projectTitle img {
+  @media only screen and (min-width: 736px) {
+    .projectTitle .main {
+        height: 1.5em;
+    }
+    .projectTitle > small {
+        margin-bottom: 0.8em;
+    }
+    .projectTitle .by {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.2em;
+    }
+    .projectTitle .by span {
+        font-size: 0.6em;
+        padding-right: 0.4em; 
+    }
+    .projectTitle .dailymotionLogo {
+        height: 0.8em;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+  }
+
+  @media only screen and (max-width: 1023px) {
+    .navigationSlider .slidingNav ul {
+        background-color: #fff091;
+        color: black;
+    }
+
+    .navigationSlider .slidingNav ul li.siteNavGroupActive a {
+        background-color: #fff091;
+        color: black;
+    }
+
+    .navigationSlider .slidingNav ul li a:focus,
+    .navigationSlider .slidingNav ul li a:hover,
+    .navigationSlider .slidingNav ul li.siteNavItemActive a  {
+        color: white;
+        background-color: #232323;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {  
+    .projectTitle .main {
         height: 1.7em;
+    }
+    .projectTitle > small {
+        margin-bottom: 0.8em;
+    }
+    .projectTitle .by {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.2em;
+    }
+    .projectTitle .by span {
+        font-size: 0.6em;
+        padding-right: 0.4em; 
+    }
+    .projectTitle .dailymotionLogo {
+        height: 0.8em;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
     }
   }
   
   @media only screen and (min-width: 1500px) {
     
   }
+
+.home .mainContainer {
+    padding-top: 0.5em;
+}
 
 .fixedHeaderContainer header .headerTitleWithLogo {
     display: none;

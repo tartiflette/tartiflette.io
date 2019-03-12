@@ -39,7 +39,11 @@ const SplashContainer = props => (
 
 const ProjectTitle = props => (
   <h2 className="projectTitle">
-    <img src={props.img_src} alt="Tartiflette" />
+    <img className="main" src={props.img_src} alt="Tartiflette" />
+    <div className="by">
+      <span>by </span>
+      <img className="dailymotionLogo" src={imgUrl('dailymotion.svg')} />
+    </div>
     <small>{siteConfig.tagline}</small>
   </h2>
 )
@@ -147,7 +151,7 @@ class Index extends React.Component {
     const language = this.props.language || ''
 
     return (
-      <div>
+      <div className="home">
         <HomeSplash language={language} />
         <div className="mainContainer">
           <Features />
