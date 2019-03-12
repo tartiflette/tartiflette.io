@@ -75,7 +75,7 @@
 <p>We will put all our python files into the python module <code>recipes_manager</code>.</p>
 <pre><code class="hljs">mkdir -<span class="hljs-selector-tag">p</span> recipes_manager
 </code></pre>
-<p>Moreover, we are going to create multiple files which will contains our application code.</p>
+<p>Moreover, we are going to create multiple files which will contain our application code.</p>
 <ul>
 <li><code>recipes_manager/app.py</code>: Entrypoint of our application. In charge of the initialization of <code>tartiflette-aiohttp</code>.</li>
 <li><code>recipes_manager/sdl</code>: Folder which will contain our SDL <em>(Schema Definition Language)</em> files.
@@ -133,7 +133,7 @@ touch recipes_manager/directives/rate_limiting.py
 <p>We will need some data to execute <code>query</code>, <code>mutation</code> and <code>subscription</code>.</p>
 <p>Fill the file <strong>recipes_manager/data.py</strong> with this data.</p>
 <pre><code class="hljs css language-python"><span class="token comment"># Dictionary which contains the ingredients based on the</span>
-<span class="token comment"># Recipe ID as key.</span>
+<span class="token comment"># Recipe ID as the key.</span>
 INGREDIENTS_QUANTITY <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token number">1</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
         <span class="token punctuation">{</span> <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"potato"</span><span class="token punctuation">,</span> <span class="token string">"quantity"</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"UNIT"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>

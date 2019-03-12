@@ -56,7 +56,7 @@
               }
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/dailymotion/tartiflette/edit/master/docs/api/engine.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Engine</h1></header><article><div><span><p>The way to generate an engine is pretty simple.</p>
-<p>The engine accepts at least one parameter, called &quot;sdl&quot;, the other are <a href="#advanced-constructor">documented in the advanced usage</a> part of the documents.</p>
+<p>The engine accepts at least one parameter, called &quot;sdl&quot;, the others are <a href="#advanced-constructor">documented in the advanced usage</a> part of the documents.</p>
 <pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Engine
 Engine<span class="token punctuation">(</span>
     sdl<span class="token punctuation">,</span>
@@ -80,7 +80,7 @@ engine <span class="token operator">=</span> tartiflette<span class="token punct
 <span class="token punctuation">)</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="when-the-sdl-parameter-targets-a-file"></a><a href="#when-the-sdl-parameter-targets-a-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>When the <code>sdl</code> parameter targets a file</h3>
-<p>The filepath specified has to contain the full schema definition language.</p>
+<p>The file path specified has to contain the full schema definition language.</p>
 <pre><code class="hljs css language-python"><span class="token keyword">import</span> tartiflette
 
 engine <span class="token operator">=</span> tartiflette<span class="token punctuation">.</span>Engine<span class="token punctuation">(</span>
@@ -99,7 +99,7 @@ engine <span class="token operator">=</span> tartiflette<span class="token punct
 <span class="token punctuation">)</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="when-the-sdl-parameter-targets-a-folder"></a><a href="#when-the-sdl-parameter-targets-a-folder" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>When the <code>sdl</code> parameter targets a folder</h3>
-<p>Every file which ends by <code>.graphql</code> <em>(or <code>.sdl</code>)</em> will be concatenated, in lexicographical order.</p>
+<p>Every file which ends by <code>.graphql</code> <em>(or <code>.sdl</code>)</em> will be concatenated in lexicographical order.</p>
 <pre><code class="hljs css language-python"><span class="token keyword">import</span> tartiflette
 
 engine <span class="token operator">=</span> tartiflette<span class="token punctuation">.</span>Engine<span class="token punctuation">(</span>
@@ -135,7 +135,7 @@ e <span class="token operator">=</span> Engine<span class="token punctuation">(<
 <span class="token punctuation">)</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="parameter-custom-default-resolver"></a><a href="#parameter-custom-default-resolver" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameter: <code>custom_default_resolver</code></h3>
-<p>Use another default resolver. It can be useful to override the behavior for resolving a property, sfrom <code>snake_case</code> to <code>camelCase</code> and vice versa.</p>
+<p>Use another default resolver. It can be useful to override the behavior for resolving a property, from <code>snake_case</code> to <code>camelCase</code> and vice versa.</p>
 <pre><code class="hljs css language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">my_default_resolver</span><span class="token punctuation">(</span>parent_result<span class="token punctuation">,</span> arguments<span class="token punctuation">,</span> context<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
     do_ing_some_thin_gs <span class="token operator">=</span> <span class="token number">42</span>
     <span class="token keyword">return</span> a_value
