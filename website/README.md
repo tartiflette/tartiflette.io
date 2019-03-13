@@ -57,4 +57,4 @@ The documentation files are located in the [tartiflette repository](https://gith
 
 # Full Documentation
 
-Full documentation can be found on the [website](https://docusaurus.io/).
+Full documentation can be found on the [website](https://tartiflette.io/).
