@@ -90,7 +90,7 @@
 
 
 @Resolver<span class="token punctuation">(</span><span class="token string">"Query.recipes"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolver_recipe</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolver_recipes</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">return</span> RECIPES
 
 
@@ -105,7 +105,7 @@
 
 
 @Resolver<span class="token punctuation">(</span><span class="token string">"Recipe.ingredientsQuantity"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolver_recipe</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolver_ingredients</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> parent <span class="token operator">and</span> parent<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span> <span class="token keyword">in</span> INGREDIENTS_QUANTITY<span class="token punctuation">:</span>
         <span class="token keyword">return</span> INGREDIENTS_QUANTITY<span class="token punctuation">[</span>parent<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
 
