@@ -25,13 +25,13 @@ class Help extends React.Component {
           language
         )})`,
         image: imgUrl('open-book.svg'),
-        imageAlign: 'left',
+        imageAlign: 'top',
         title: 'Start the tutorial',
       },
       {
         content: 'Join us on Slack to chat with the community and the Tartiflette team members.',
         image: imgUrl('slack.svg'),
-        imageAlign: 'left',
+        imageAlign: 'top',
         title: `[Come chat with us](${siteConfig.slackInviteWebsite})`,
       },
     ]
@@ -40,13 +40,13 @@ class Help extends React.Component {
       {
         content: `Keep up to date with tartiflette's news by following us on twitter.`,
         image: imgUrl('twitter.svg'),
-        imageAlign: 'left',
+        imageAlign: 'top',
         title: `[Follow us on Twitter](${siteConfig.twitterUrl})`,
       },
       {
         content: `Our Engine is fully open-source, contributors are welcomed. We suggest you to take a look of the [contributing guidelines](${siteConfig.repoUrl}/blob/master/docs/CONTRIBUTING.md) and the [code of conduct](${siteConfig.repoUrl}/tree/master/docs)`,
         image: imgUrl('github.svg'),
-        imageAlign: 'left',
+        imageAlign: 'top',
         title: 'Contribute to Tartiflette?',
       },
     ]
