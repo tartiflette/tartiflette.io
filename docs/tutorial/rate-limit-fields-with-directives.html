@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Rate limit your fields with directives · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Based &lt;a href=&quot;/docs/tutorial/extend-with-directives/&quot;&gt;on what we discovered in the previous step&lt;/a&gt;, we will extend the capabilities of our GraphQL API with the help of directives.&lt;/p&gt;
-"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Rate limit your fields with directives · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/index.html"/><meta property="og:description" content="&lt;p&gt;Based &lt;a href=&quot;/docs/tutorial/extend-with-directives/&quot;&gt;on what we discovered in the previous step&lt;/a&gt;, we will extend the capabilities of our GraphQL API with the help of directives.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Rate limit your fields with directives · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="&lt;p&gt;Based &lt;a href=&quot;/docs/tutorial/extend-with-directives/&quot;&gt;on what we discovered in the previous step&lt;/a&gt;, we will extend the capabilities of our GraphQL API with the help of directives.&lt;/p&gt;
 "/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments); }
@@ -64,13 +64,13 @@
   <span class="token attr-name">name</span><span class="token punctuation">:</span> String
   <span class="token attr-name">max_attempts</span><span class="token punctuation">:</span> Int <span class="token operator">=</span> <span class="token number">5</span>
   <span class="token attr-name">duration</span><span class="token punctuation">:</span> Int <span class="token operator">=</span> <span class="token number">60</span>
-<span class="token punctuation">)</span> on FIELD_DEFINITION
+<span class="token punctuation">)</span> <span class="token keyword">on</span> <span class="token class-name">FIELD_DEFINITION</span>
 
-type Mutation <span class="token punctuation">{</span>
-  updateRecipe<span class="token punctuation">(</span><span class="token attr-name">input</span><span class="token punctuation">:</span> RecipeInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Recipe <span class="token directive function">@rateLimiting</span><span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"update_recipe"</span><span class="token punctuation">)</span>
+<span class="token keyword">type</span> <span class="token class-name">Mutation</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">updateRecipe</span><span class="token punctuation">(</span><span class="token attr-name">input</span><span class="token punctuation">:</span> RecipeInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Recipe <span class="token directive function">@rateLimiting</span><span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"update_recipe"</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
-input RecipeInput <span class="token punctuation">{</span>
+<span class="token keyword">input</span> RecipeInput <span class="token punctuation">{</span>
   <span class="token attr-name">id</span><span class="token punctuation">:</span> Int<span class="token operator">!</span>
   <span class="token attr-name">name</span><span class="token punctuation">:</span> String
   <span class="token attr-name">cookingTime</span><span class="token punctuation">:</span> Int
@@ -127,7 +127,7 @@ _RATE_LIMIT_RULES <span class="token operator">=</span> <span class="token punct
         ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         info<span class="token punctuation">:</span> <span class="token string">"Info"</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> <span class="token punctuation">(</span>directive_args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span> <span class="token keyword">in</span> _RATE_LIMIT_RULES<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token punctuation">(</span>directive_args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span> <span class="token keyword">in</span> _RATE_LIMIT_RULES<span class="token punctuation">)</span><span class="token punctuation">:</span>
             rate_limit_new_rule<span class="token punctuation">(</span>
                 directive_args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                 directive_args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"max_attempts"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
@@ -139,7 +139,7 @@ _RATE_LIMIT_RULES <span class="token operator">=</span> <span class="token punct
                 directive_args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"max_attempts"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                 directive_args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"duration"</span><span class="token punctuation">)</span>
             <span class="token punctuation">)</span>
-            <span class="token keyword">if</span> <span class="token operator">not</span> is_valid<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token keyword">not</span> is_valid<span class="token punctuation">:</span>
                 <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"You reached the limit of the rate limiting"</span><span class="token punctuation">)</span>
 
         <span class="token keyword">return</span> <span class="token keyword">await</span> next_resolver<span class="token punctuation">(</span>parent_result<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>

@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Add subscription · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;We discovered how to Query and Mutate data, now, we are going to discover a more advanced part of GraphQL, the &lt;a href=&quot;https://graphql.org/blog/subscriptions-in-graphql-and-relay/#event-based-subscriptions&quot;&gt;event-based subscriptions&lt;/a&gt;, known as the &lt;code&gt;subscription&lt;/code&gt; operation in the specification.&lt;/p&gt;
-"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Add subscription · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/index.html"/><meta property="og:description" content="&lt;p&gt;We discovered how to Query and Mutate data, now, we are going to discover a more advanced part of GraphQL, the &lt;a href=&quot;https://graphql.org/blog/subscriptions-in-graphql-and-relay/#event-based-subscriptions&quot;&gt;event-based subscriptions&lt;/a&gt;, known as the &lt;code&gt;subscription&lt;/code&gt; operation in the specification.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Add subscription · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="&lt;p&gt;We discovered how to Query and Mutate data, now, we are going to discover a more advanced part of GraphQL, the &lt;a href=&quot;https://graphql.org/blog/subscriptions-in-graphql-and-relay/#event-based-subscriptions&quot;&gt;event-based subscriptions&lt;/a&gt;, known as the &lt;code&gt;subscription&lt;/code&gt; operation in the specification.&lt;/p&gt;
 "/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments); }
@@ -65,16 +65,16 @@
 <ul>
 <li><code>launchAndWaitCookingTimer</code>: The client will subscribe to this field <em>(with the recipe id as a parameter)</em>, and will receive a message each second which will follow the <code>CookingTimer</code> type.</li>
 </ul>
-<pre><code class="hljs css language-graphql">type Subscription <span class="token punctuation">{</span>
-  launchAndWaitCookingTimer<span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> Int<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> CookingTimer
+<pre><code class="hljs css language-graphql"><span class="token keyword">type</span> <span class="token class-name">Subscription</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">launchAndWaitCookingTimer</span><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> Int<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> CookingTimer
 <span class="token punctuation">}</span>
 
-enum CookingStatus <span class="token punctuation">{</span>
-  COOKING
-  COOKED
+<span class="token keyword">enum</span> <span class="token class-name">CookingStatus</span> <span class="token punctuation">{</span>
+  <span class="token constant">COOKING</span>
+  <span class="token constant">COOKED</span>
 <span class="token punctuation">}</span>
 
-type CookingTimer <span class="token punctuation">{</span>
+<span class="token keyword">type</span> <span class="token class-name">CookingTimer</span> <span class="token punctuation">{</span>
   <span class="token attr-name">remainingTime</span><span class="token punctuation">:</span> Int<span class="token operator">!</span>
   <span class="token attr-name">status</span><span class="token punctuation">:</span> CookingStatus<span class="token operator">!</span>
 <span class="token punctuation">}</span>
@@ -93,8 +93,8 @@ type CookingTimer <span class="token punctuation">{</span>
 <span class="token punctuation">)</span><span class="token punctuation">:</span>
   recipe <span class="token operator">=</span> <span class="token punctuation">[</span>r <span class="token keyword">for</span> r <span class="token keyword">in</span> RECIPES <span class="token keyword">if</span> r<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token builtin">int</span><span class="token punctuation">(</span>args<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 
-  <span class="token keyword">if</span> <span class="token operator">not</span> recipe<span class="token punctuation">:</span>
-    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span>f<span class="token string">"The recipe with the id '{args['d']}' doesn't exist."</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token keyword">not</span> recipe<span class="token punctuation">:</span>
+    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"The recipe with the id '</span><span class="token interpolation"><span class="token punctuation">{</span>args<span class="token punctuation">[</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">' doesn't exist."</span></span><span class="token punctuation">)</span>
 
   <span class="token keyword">for</span> index <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> recipe<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"cookingTime"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">yield</span> <span class="token punctuation">{</span>
