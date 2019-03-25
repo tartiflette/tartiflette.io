@@ -9,13 +9,21 @@ action "Docker Registry" {
 }
 
 action "Build" {
-  uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  uses = "actions/action-builder/shell@master"
   needs = ["Docker Registry"]
+  runs = "make"
+  args = "import-docs"
+}
+
+action "Build Docker Image" {
+  uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["Build"]
   args = "build -t dailymotion/tartiflette.io:latest ."
 }
 
 action "Push" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
-  needs = ["Build"]
+  needs = ["Build Docker Image"]
   args = "push dailymotion/tartiflette.io:latest"
 }
+
