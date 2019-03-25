@@ -9,7 +9,7 @@ action "Docker Registry" {
 }
 
 action "Build" {
-  uses = "actions/action-builder/shell@master"
+  uses = "./actions-shell/"
   needs = ["Docker Registry"]
   runs = "make"
   args = "import-docs"
