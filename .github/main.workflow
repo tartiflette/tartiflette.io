@@ -1,6 +1,6 @@
 workflow "Push tartiflette.io Docker Image" {
   on = "push"
-  resolves = ["Build"]
+  resolves = ["Push"]
 }
 
 action "Docker Registry" {
@@ -11,5 +11,11 @@ action "Docker Registry" {
 action "Build" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
   needs = ["Docker Registry"]
-  args = "build -t dailymotion/tartiflette.io:$GITHUB_SHA ."
+  args = "build -t dailymotion/tartiflette.io:latest ."
+}
+
+action "Push" {
+  uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
+  needs = ["Build"]
+  args = "push dailymotion/tartiflette.io:latest"
 }
