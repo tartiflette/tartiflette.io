@@ -67,21 +67,21 @@
 <span class="token punctuation">}</span>
 
 <span class="token keyword">enum</span> <span class="token class-name">IngredientType</span> <span class="token punctuation">{</span>
-    <span class="token constant">GRAM</span>
-    <span class="token constant">LITER</span>
-    <span class="token constant">UNIT</span>
+  <span class="token constant">GRAM</span>
+  <span class="token constant">LITER</span>
+  <span class="token constant">UNIT</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">type</span> <span class="token class-name">IngredientQuantity</span> <span class="token punctuation">{</span>
-    <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
-    <span class="token attr-name">quantity</span><span class="token punctuation">:</span> Float<span class="token operator">!</span>
-    <span class="token attr-name">type</span><span class="token punctuation">:</span> IngredientType<span class="token operator">!</span>
+<span class="token keyword">type</span> <span class="token class-name">Ingredient</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">quantity</span><span class="token punctuation">:</span> Float<span class="token operator">!</span>
+  <span class="token attr-name">type</span><span class="token punctuation">:</span> IngredientType<span class="token operator">!</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">type</span> <span class="token class-name">Recipe</span> <span class="token punctuation">{</span>
   <span class="token attr-name">id</span><span class="token punctuation">:</span> Int
   <span class="token attr-name">name</span><span class="token punctuation">:</span> String
-  <span class="token attr-name">ingredientsQuantity</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>IngredientQuantity<span class="token punctuation">]</span>
+  <span class="token attr-name">ingredients</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Ingredient<span class="token punctuation">]</span>
   <span class="token attr-name">cookingTime</span><span class="token punctuation">:</span> Int
 <span class="token punctuation">}</span>
 </code></pre>

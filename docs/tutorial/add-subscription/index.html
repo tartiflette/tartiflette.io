@@ -88,22 +88,22 @@
 <span class="token keyword">from</span> recipes_manager<span class="token punctuation">.</span>data <span class="token keyword">import</span> RECIPES
 
 @Subscription<span class="token punctuation">(</span><span class="token string">"Subscription.launchAndWaitCookingTimer"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">subscription_cooking_time</span><span class="token punctuation">(</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_cooking_time</span><span class="token punctuation">(</span>
     parent_result<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info
 <span class="token punctuation">)</span><span class="token punctuation">:</span>
   recipe <span class="token operator">=</span> <span class="token punctuation">[</span>r <span class="token keyword">for</span> r <span class="token keyword">in</span> RECIPES <span class="token keyword">if</span> r<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token builtin">int</span><span class="token punctuation">(</span>args<span class="token punctuation">[</span><span class="token string">"id"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
 
   <span class="token keyword">if</span> <span class="token keyword">not</span> recipe<span class="token punctuation">:</span>
-    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"The recipe with the id '</span><span class="token interpolation"><span class="token punctuation">{</span>args<span class="token punctuation">[</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">' doesn't exist."</span></span><span class="token punctuation">)</span>
+    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"The recipe with the id '</span><span class="token interpolation"><span class="token punctuation">{</span>args<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span><span class="token string">' doesn't exist."</span></span><span class="token punctuation">)</span>
 
   <span class="token keyword">for</span> index <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> recipe<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"cookingTime"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">yield</span> <span class="token punctuation">{</span>
       <span class="token string">"remainingTime"</span><span class="token punctuation">:</span> recipe<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"cookingTime"</span><span class="token punctuation">]</span> <span class="token operator">-</span> index<span class="token punctuation">,</span>
       <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"COOKING"</span>
     <span class="token punctuation">}</span>
-
+            
     <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-
+    
   <span class="token keyword">yield</span> <span class="token punctuation">{</span>
     <span class="token string">"remainingTime"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
     <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"COOKED"</span>
