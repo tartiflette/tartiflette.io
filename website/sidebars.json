@@ -27,6 +27,7 @@
       "api/resolver",
       "api/subscription",
       "api/directive",
+      "api/scalar",
       "api/schema-registry"
     ],
     "API (aiohttp)": [
