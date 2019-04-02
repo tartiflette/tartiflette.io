@@ -8,6 +8,7 @@
 <url> <loc>https://tartiflette.io/docs/api/engine</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/engine" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/execution</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/execution" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/resolver</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/resolver" /> </url>
+<url> <loc>https://tartiflette.io/docs/api/scalar</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/scalar" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/schema-registry</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/schema-registry" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/subscription</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/subscription" /> </url>
 <url> <loc>https://tartiflette.io/docs/CODE-OF-CONDUCT</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/CODE-OF-CONDUCT" /> </url>
