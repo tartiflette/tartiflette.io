@@ -1,29 +1,35 @@
-workflow "Push tartiflette.io Docker Image" {
+workflow "push tartiflette.io docker image" {
   on = "push"
-  resolves = ["Push"]
+  resolves = ["push"]
 }
 
-action "Docker Registry" {
+action "docker registry" {
   uses = "actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108"
   secrets = ["DOCKER_USERNAME", "GITHUB_TOKEN", "DOCKER_PASSWORD"]
 }
 
-action "Build" {
+action "build" {
   uses = "./actions-shell/"
-  needs = ["Docker Registry"]
+  needs = ["docker registry"]
   runs = "make"
   args = "import-docs"
 }
 
-action "Build Docker Image" {
+action "build docker image" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
-  needs = ["Build"]
+  needs = ["build"]
   args = "build -t dailymotion/tartiflette.io:latest ."
 }
 
-action "Push" {
+action "is master" {
+  uses = "actions/bin/filter@master"
+  needs = ["build docker image"]
+  args = "branch master"
+}
+
+action "push" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
-  needs = ["Build Docker Image"]
+  needs = ["is master"]
   args = "push dailymotion/tartiflette.io:latest"
 }
 
