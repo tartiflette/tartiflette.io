@@ -6,6 +6,7 @@
 <url> <loc>https://tartiflette.io/docs/api-aiohttp/getting-started</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api-aiohttp/getting-started" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/directive</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/directive" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/engine</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/engine" /> </url>
+<url> <loc>https://tartiflette.io/docs/api/error-handling</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/error-handling" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/execution</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/execution" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/resolver</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/resolver" /> </url>
 <url> <loc>https://tartiflette.io/docs/api/scalar</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://tartiflette.io/docs/api/scalar" /> </url>

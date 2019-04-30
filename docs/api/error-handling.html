@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Error handling · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Tartiflette Engine provides an unique &lt;code&gt;TartifletteError&lt;/code&gt; class, which is designed to format errors accordingly to the GraphQL specification.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Error handling · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="&lt;p&gt;Tartiflette Engine provides an unique &lt;code&gt;TartifletteError&lt;/code&gt; class, which is designed to format errors accordingly to the GraphQL specification.&lt;/p&gt;
+"/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-64443-60');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/tartiflette-white.svg" alt="Tartiflette GraphQL Python Engine"/><h2 class="headerTitleWithLogo">Tartiflette GraphQL Python Engine</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/welcome/what-is-tartiflette" target="_self">What is Tartiflette?</a></li><li class=""><a href="/docs/tutorial/getting-started" target="_self">Tutorial</a></li><li class=""><a href="/docs/api/engine" target="_self">API</a></li><li class=""><a href="/community" target="_self">Community</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/dailymotion/tartiflette/edit/master/docs/api/error-handling.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Error handling</h1></header><article><div><span><p>Tartiflette Engine provides an unique <code>TartifletteError</code> class, which is designed to format errors accordingly to the GraphQL specification.</p>
+<p>When an error occurs from both tartiflette engine and your resolvers, it is formated to respect the regular GraphQL Error shape.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"data"</span>: {
+        <span class="hljs-attr">"myField"</span>: {}
+    },
+    <span class="hljs-attr">"errors"</span>: [
+        {
+            <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Something wrong happened."</span>,
+            <span class="hljs-attr">"path"</span>: [<span class="hljs-string">"myField"</span>],
+            <span class="hljs-attr">"locations"</span>: [
+                {
+                    <span class="hljs-attr">"line"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"column"</span>: <span class="hljs-number">2</span>
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="default-use-case"></a><a href="#default-use-case" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Default use-case</h2>
+<p>Commonly, each exception is wrapped into a <code>TartifletteError</code> exception, the message is copied, and the original exception is stored into theinstance is put into the <code>original_error</code> property.</p>
+<p>In that use-case, there is no way to specify custom properties.</p>
+<p>e.g</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Resolver
+
+@Resolver<span class="token punctuation">(</span><span class="token string">"Query.myField"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolve_my_field</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># bla bla bla</span>
+    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"There is an error with your storage"</span><span class="token punctuation">)</span>
+
+</code></pre>
+<p>Will return this response payload.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"data"</span>: {
+        <span class="hljs-attr">"myField"</span>: {}
+    },
+    <span class="hljs-attr">"errors"</span>: [
+        {
+            <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Something wrong happened."</span>,
+            <span class="hljs-attr">"path"</span>: [<span class="hljs-string">"myField"</span>],
+            <span class="hljs-attr">"locations"</span>: [
+                {
+                    <span class="hljs-attr">"line"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"column"</span>: <span class="hljs-number">2</span>
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="add-custom-properties-to-the-response-payload"></a><a href="#add-custom-properties-to-the-response-payload" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add custom properties to the response payload</h2>
+<p>In some use-cases, like form's validation, functional error, you want to expose more fine-grained details to your API's clients. These details allow them to adapt their UI on your custom attributes.</p>
+<p><a href="https://graphql.github.io/graphql-spec/June2018/#sec-Errors">As explained in the specification</a>, this is possible to add extra properties to the response error payload. They have to be included into the <code>extensions</code> property of your error.</p>
+<p>To enjoy this interesting feature, you have to create your own exception and fullfill the <code>extensions</code> property.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> TartifletteError<span class="token punctuation">,</span> Resolver
+
+<span class="token keyword">class</span> <span class="token class-name">DomainException</span><span class="token punctuation">(</span>TartifletteError<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Base class for Domain exception."""</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> type_name<span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>extensions <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"code"</span><span class="token punctuation">:</span> type_name
+        <span class="token punctuation">}</span>
+
+
+@Resolver<span class="token punctuation">(</span><span class="token string">"Query.myField"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolve_my_field</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">raise</span> DomainException<span class="token punctuation">(</span><span class="token string">"invalid_request"</span><span class="token punctuation">,</span> <span class="token string">"Your request is not valid."</span><span class="token punctuation">)</span>
+
+</code></pre>
+<p>The response payload will be.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"data"</span>: {
+        <span class="hljs-attr">"myField"</span>: {}
+    },
+    <span class="hljs-attr">"errors"</span>: [
+        {
+            <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Your request is not valid."</span>,
+            <span class="hljs-attr">"path"</span>: [<span class="hljs-string">"myField"</span>],
+            <span class="hljs-attr">"locations"</span>: [
+                {
+                    <span class="hljs-attr">"line"</span>: <span class="hljs-number">1</span>,
+                    <span class="hljs-attr">"column"</span>: <span class="hljs-number">2</span>
+                }
+            ],
+            <span class="hljs-attr">"extensions"</span>: {
+                <span class="hljs-attr">"code"</span>: <span class="hljs-string">"invalid_request"</span>
+            }
+        }
+    ]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="advanced-add-a-global-error-coercer"></a><a href="#advanced-add-a-global-error-coercer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced: add a global error coercer</h2>
+<p><strong>Warning</strong>: This is an advanced feature, for common error handling behaviors, please take a look of the <code>TartifletteError</code> above.</p>
+<p>Every errors are coerced with a default behavior <em>(the exception message is put in the &quot;messages&quot; response property)</em>.</p>
+<p>This behavior fit the common use-cases, sometimes, you want to override some behavior when a specific error occured, like:</p>
+<ul>
+<li>Add a log entry when a third-party exceptions is raised <em>(e.g pymsql, redis)</em>.</li>
+<li>Hide technical message's exception for production environment <em>(don't expose your internal stack to the outside world)</em></li>
+</ul>
+<p>To implement this, Tartiflette Engine allows you to override the default coercer by yours. It should be passed at the Engine instanciation in the <code>error_coercer</code>property, and respect this following signature <code>my_error_coercer(exception, error) -&gt; dict</code>.</p>
+<p>Here is an example of a custom error coercer.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">import</span> logging
+
+
+<span class="token keyword">class</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> type_name<span class="token punctuation">,</span> message<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span><span class="token builtin">type</span> <span class="token operator">=</span> type_name
+        self<span class="token punctuation">.</span>message <span class="token operator">=</span> message
+
+
+<span class="token keyword">def</span> <span class="token function">my_error_coercer</span><span class="token punctuation">(</span>exception<span class="token punctuation">,</span> error<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">dict</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>exception<span class="token punctuation">,</span> CustomException<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        logging<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">"Unable to reach the Storage host."</span><span class="token punctuation">)</span>
+        error<span class="token punctuation">[</span><span class="token string">"extensions"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">=</span> exception<span class="token punctuation">.</span><span class="token builtin">type</span>
+
+    <span class="token keyword">return</span> error
+
+
+e <span class="token operator">=</span> Engine<span class="token punctuation">(</span>
+    <span class="token string">"my_sdl.graphql"</span><span class="token punctuation">,</span>
+    error_coercer<span class="token operator">=</span>my_error_coercer
+<span class="token punctuation">)</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#default-use-case">Default use-case</a></li><li><a href="#add-custom-properties-to-the-response-payload">Add custom properties to the response payload</a></li><li><a href="#advanced-add-a-global-error-coercer">Advanced: add a global error coercer</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/tartiflette-square-t-white.svg" alt="Tartiflette GraphQL Python Engine" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/tutorial/getting-started">Tutorial</a><a href="/docs/en/api/engine">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/tartiflette" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="http://slack-tartiflette-io.herokuapp.com">Join us on Slack</a><a href="https://twitter.com/dailymotionEng" target="_blank" rel="noreferrer noopener">Twitter @dailymotionEng</a></div><div><h5>More</h5><a href="https://github.com/dailymotion/tartiflette">GitHub</a><a class="github-button" href="https://github.com/dailymotion/tartiflette" data-icon="octicon-star" data-count-href="/dailymotion/tartiflette/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://dailymotion.com" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dailymotion-white.svg" alt="Dailymotion"/></a><section class="copyright">Copyright © 2019 Dailymotion<br/>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
