@@ -28,6 +28,7 @@
       "api/subscription",
       "api/directive",
       "api/scalar",
+      "api/error-handling",
       "api/schema-registry"
     ],
     "API (aiohttp)": [
