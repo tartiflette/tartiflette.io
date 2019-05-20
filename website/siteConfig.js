@@ -28,6 +28,7 @@ const siteConfig = {
     {doc: 'welcome/what-is-tartiflette', label: 'What is Tartiflette?'},
     {doc: 'tutorial/getting-started', label: 'Tutorial'},
     {doc: 'api/engine', label: 'API'},
+    {doc: 'plugins/introduction', label: 'Plugins'},
     {page: 'community', label: 'Community'},
   ],
 
