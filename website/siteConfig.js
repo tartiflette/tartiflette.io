@@ -21,7 +21,7 @@ const siteConfig = {
 
   // Used for publishing and more
   projectName: 'tartiflette.io',
-  organizationName: 'dailymotion',
+  organizationName: 'tartiflette',
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
@@ -47,7 +47,7 @@ const siteConfig = {
 
   cname: "tartiflette.io",
 
-  editUrl: "https://github.com/dailymotion/tartiflette/edit/master/docs/",
+  editUrl: "https://github.com/tartiflette/tartiflette/edit/master/docs/",
 
   /* Custom fonts for website */
   /*
@@ -92,7 +92,7 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  repoUrl: 'https://github.com/dailymotion/tartiflette',
+  repoUrl: 'https://github.com/tartiflette/tartiflette',
 
   gaTrackingId: "UA-64443-60",
   gaGtag: true,

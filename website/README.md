@@ -53,7 +53,7 @@ tartiflette.io/
 
 ## Editing an existing docs page
 
-The documentation files are located in the [tartiflette repository](https://github.com/dailymotion/tartiflette/tree/master/docs)
+The documentation files are located in the [tartiflette repository](https://github.com/tartiflette/tartiflette/tree/master/docs)
 
 # Full Documentation
 

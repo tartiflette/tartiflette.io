@@ -18,7 +18,7 @@ action "build" {
 action "build docker image" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
   needs = ["build"]
-  args = "build -t dailymotion/tartiflette.io:latest ."
+  args = "build -t tartiflette/tartiflette.io:latest ."
 }
 
 action "is master" {
@@ -30,6 +30,6 @@ action "is master" {
 action "push" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
   needs = ["is master"]
-  args = "push dailymotion/tartiflette.io:latest"
+  args = "push tartiflette/tartiflette.io:latest"
 }
 
