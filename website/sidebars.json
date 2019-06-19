@@ -31,6 +31,12 @@
       "api/error-handling",
       "api/schema-registry"
     ],
+    "Plugins": [
+      "plugins/introduction",
+      "plugins/create-a-plugin",
+      "plugins/use-a-plugin",
+      "plugins/currated-list"
+    ],
     "API (aiohttp)": [
       "api-aiohttp/getting-started"
     ]
