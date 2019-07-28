@@ -25,6 +25,7 @@
       "api/engine",
       "api/execution",
       "api/resolver",
+      "api/type-resolver",
       "api/subscription",
       "api/directive",
       "api/scalar",
