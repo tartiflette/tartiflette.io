@@ -38,6 +38,9 @@
       "plugins/use-a-plugin",
       "plugins/currated-list"
     ],
+    "Migration Guides": [
+      "migration-guides/migration-guide-0-0-to-1-0"
+    ],
     "API (aiohttp)": [
       "api-aiohttp/getting-started"
     ]
