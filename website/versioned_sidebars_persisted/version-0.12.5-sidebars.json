@@ -1,0 +1,45 @@
+{
+    "version-0.12.5-docs": {
+      "Welcome": [
+        "version-0.12.5-welcome/what-is-tartiflette"
+      ],
+      "Tutorial": [
+        "version-0.12.5-tutorial/getting-started",
+        "version-0.12.5-tutorial/project-initialization",
+        "version-0.12.5-tutorial/install-tartiflette",
+        "version-0.12.5-tutorial/create-server",
+        "version-0.12.5-tutorial/write-your-resolvers",
+        "version-0.12.5-tutorial/running-a-query",
+        "version-0.12.5-tutorial/write-your-mutation-resolvers",
+        "version-0.12.5-tutorial/running-a-mutation",
+        "version-0.12.5-tutorial/add-subscription",
+        "version-0.12.5-tutorial/running-a-subscription"
+      ],
+      "Tutorial (Advanced)": [
+        "version-0.12.5-tutorial/extend-with-directives",
+        "version-0.12.5-tutorial/rate-limit-fields-with-directives",
+        "version-0.12.5-tutorial/dynamic-introspection",
+        "version-0.12.5-tutorial/use-with-docker"
+      ],
+      "API": [
+        "version-0.12.5-api/engine",
+        "version-0.12.5-api/execution",
+        "version-0.12.5-api/resolver",
+        "version-0.12.5-api/subscription",
+        "version-0.12.5-api/directive",
+        "version-0.12.5-api/scalar",
+        "version-0.12.5-api/error-handling",
+        "version-0.12.5-api/schema-registry"
+      ],
+      "Plugins": [
+        "version-0.12.5-plugins/introduction",
+        "version-0.12.5-plugins/create-a-plugin",
+        "version-0.12.5-plugins/use-a-plugin",
+        "version-0.12.5-plugins/currated-list"
+      ],
+      "API (aiohttp)": [
+        "version-0.12.5-api-aiohttp/getting-started"
+      ]
+    }
+  }
+  
