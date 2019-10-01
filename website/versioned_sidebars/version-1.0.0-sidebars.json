@@ -1,0 +1,48 @@
+{
+  "version-1.0.0-docs": {
+    "Welcome": [
+      "version-1.0.0-welcome/what-is-tartiflette"
+    ],
+    "Tutorial": [
+      "version-1.0.0-tutorial/getting-started",
+      "version-1.0.0-tutorial/project-initialization",
+      "version-1.0.0-tutorial/install-tartiflette",
+      "version-1.0.0-tutorial/create-server",
+      "version-1.0.0-tutorial/write-your-resolvers",
+      "version-1.0.0-tutorial/running-a-query",
+      "version-1.0.0-tutorial/write-your-mutation-resolvers",
+      "version-1.0.0-tutorial/running-a-mutation",
+      "version-1.0.0-tutorial/add-subscription",
+      "version-1.0.0-tutorial/running-a-subscription"
+    ],
+    "Tutorial (Advanced)": [
+      "version-1.0.0-tutorial/extend-with-directives",
+      "version-1.0.0-tutorial/rate-limit-fields-with-directives",
+      "version-1.0.0-tutorial/dynamic-introspection",
+      "version-1.0.0-tutorial/use-with-docker"
+    ],
+    "API": [
+      "version-1.0.0-api/engine",
+      "version-1.0.0-api/execution",
+      "version-1.0.0-api/resolver",
+      "version-1.0.0-api/type-resolver",
+      "version-1.0.0-api/subscription",
+      "version-1.0.0-api/directive",
+      "version-1.0.0-api/scalar",
+      "version-1.0.0-api/error-handling",
+      "version-1.0.0-api/schema-registry"
+    ],
+    "Plugins": [
+      "version-1.0.0-plugins/introduction",
+      "version-1.0.0-plugins/create-a-plugin",
+      "version-1.0.0-plugins/use-a-plugin",
+      "version-1.0.0-plugins/currated-list"
+    ],
+    "Migration Guides": [
+      "version-1.0.0-migration-guides/migration-guide-0-0-to-1-0"
+    ],
+    "API (aiohttp)": [
+      "version-1.0.0-api-aiohttp/getting-started"
+    ]
+  }
+}

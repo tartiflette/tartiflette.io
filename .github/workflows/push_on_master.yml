@@ -1,0 +1,34 @@
+name: push tartiflette.io docker image
+on:
+  push:
+    branches:
+      - master
+jobs:
+  dockerRegistry:
+    name: docker registry
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: docker registry
+      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: build
+      uses: ./actions-shell/
+      with:
+        entrypoint: make
+        args: import-docs
+    - name: build docker image
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: build -t tartiflette/tartiflette.io:latest .
+    - name: is master
+      uses: actions/bin/filter@master
+      with:
+        args: branch master
+    - name: push
+      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      with:
+        args: push tartiflette/tartiflette.io:latest
