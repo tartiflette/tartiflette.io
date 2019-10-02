@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Create a Tartiflette instance · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Make sure you followed the [Project initialization](/docs/0.12.5/tutorial/install-tartiflette) steps."/><meta name="docsearch:version" content="0.12.5"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Create a Tartiflette instance · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="Make sure you followed the [Project initialization](/docs/0.12.5/tutorial/install-tartiflette) steps."/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-64443-60');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/tartiflette-white.svg" alt="Tartiflette GraphQL Python Engine"/><h2 class="headerTitleWithLogo">Tartiflette GraphQL Python Engine</h2></a><a href="/versions"><h3>0.12.5</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/0.12.5/welcome/what-is-tartiflette" target="_self">What is Tartiflette?</a></li><li class="siteNavGroupActive"><a href="/docs/0.12.5/tutorial/getting-started" target="_self">Tutorial</a></li><li class="siteNavGroupActive"><a href="/docs/0.12.5/api/engine" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/docs/0.12.5/plugins/introduction" target="_self">Plugins</a></li><li class=""><a href="/community" target="_self">Community</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Tutorial</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.12.5/welcome/what-is-tartiflette">What is Tartiflette?</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/getting-started">1. Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/project-initialization">2. Project initialization</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/install-tartiflette">3. Install Tartiflette</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/0.12.5/tutorial/create-server">4. Create a Tartiflette instance</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/write-your-resolvers">5. Write your resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/running-a-query">6. Running a Query</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/write-your-mutation-resolvers">7. Write your mutation resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/running-a-mutation">8. Running a Mutation</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/add-subscription">9. Add subscription (advanced)</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/running-a-subscription">10. Running a Subscription</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial (Advanced)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/extend-with-directives">11. Extend with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/rate-limit-fields-with-directives">12. Rate limit your fields with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/dynamic-introspection">13. Dynamic introspection</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/tutorial/use-with-docker">14. Use with Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api/engine">Engine</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api/execution">Execution</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api/resolver">Resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api/subscription">Subscription</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api/directive">Directive</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api/scalar">Scalar</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api/error-handling">Error handling</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api/schema-registry">Schema Registry</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Plugins</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.12.5/plugins/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/plugins/create-a-plugin">Create a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/plugins/use-a-plugin">Use a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/0.12.5/plugins/currated-list">Plugin Index</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API (aiohttp)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/0.12.5/api-aiohttp/getting-started">Getting started</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/tartiflette/tartiflette/edit/master/docs/tutorial/create-server.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Create a Tartiflette instance</h1></header><article><div><span><p>Make sure you followed the <a href="/docs/0.12.5/tutorial/install-tartiflette">Project initialization</a> steps.</p>
+<p>To help you with the code to build the &quot;Recipes Manager&quot; application, we'll provide some code blocks. Simply copy-paste the code into the corresponding file which was created at the previous step and which should be empty for now.</p>
+<h2><a class="anchor" aria-hidden="true" id="write-code"></a><a href="#write-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Write code</h2>
+<h3><a class="anchor" aria-hidden="true" id="recipes_manager-sdl-querygraphql"></a><a href="#recipes_manager-sdl-querygraphql" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>recipes_manager/sdl/Query.graphql</strong></h3>
+<p>As explained on the homepage, our Engine uses the <a href="https://graphql.org/learn/schema/">official Schema Definition Language</a>.</p>
+<p>We will start to define the <code>Query</code> Schema, first.</p>
+<pre><code class="hljs css language-graphql"><span class="token keyword">type</span> <span class="token class-name">Query</span> <span class="token punctuation">{</span>
+    <span class="token attr-name">recipes</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Recipe<span class="token punctuation">]</span>
+    <span class="token attr-name">recipe</span><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> Int<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Recipe
+<span class="token punctuation">}</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">IngredientType</span> <span class="token punctuation">{</span>
+    <span class="token constant">GRAM</span>
+    <span class="token constant">LITER</span>
+    <span class="token constant">UNIT</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Ingredient</span> <span class="token punctuation">{</span>
+    <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+    <span class="token attr-name">quantity</span><span class="token punctuation">:</span> Float<span class="token operator">!</span>
+    <span class="token attr-name">type</span><span class="token punctuation">:</span> IngredientType<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Recipe</span> <span class="token punctuation">{</span>
+    <span class="token attr-name">id</span><span class="token punctuation">:</span> Int
+    <span class="token attr-name">name</span><span class="token punctuation">:</span> String
+    <span class="token attr-name">ingredients</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>Ingredient<span class="token punctuation">]</span>
+    <span class="token attr-name">cookingTime</span><span class="token punctuation">:</span> Int
+<span class="token punctuation">}</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recipes_manager-apppy"></a><a href="#recipes_manager-apppy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>recipes_manager/app.py</strong></h3>
+<p>The following file will be in charge of starting the HTTP Server <em>(<code>web.run_app</code> function)</em>.</p>
+<ul>
+<li><code>register_graphql_handlers</code> will attach HTTP handlers to the aiohttp application
+<ul>
+<li><code>app</code>: The <code>aiohttp</code> application (created with <code>app = web.Application()</code>)</li>
+<li><code>engine_sdl</code>: The Tartiflette Engine which will be used by the HTTP Handlers</li>
+<li><code>engine_modules</code>: The modules list which will be loaded by Tartiflette at cooking time <em>(building process)</em></li>
+<li><code>executor_http_endpoint</code>: Endpoint path where the GraphQL API will be exposed</li>
+<li><code>executor_http_methods</code>: HTTP methods where the GraphQL API will be exposed <em>(We recommend to expose it only on <code>POST</code>)</em></li>
+<li><code>graphiql_enabled</code>: A <a href="https://github.com/graphql/graphiql">GraphiQL</a> client to browse the GraphQL, used mostly in for development.</li>
+</ul></li>
+</ul>
+<pre><code class="hljs css language-python"><span class="token keyword">import</span> os
+
+<span class="token keyword">from</span> aiohttp <span class="token keyword">import</span> web
+
+<span class="token keyword">from</span> tartiflette_aiohttp <span class="token keyword">import</span> register_graphql_handlers
+
+
+<span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    app <span class="token operator">=</span> web<span class="token punctuation">.</span>Application<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    web<span class="token punctuation">.</span>run_app<span class="token punctuation">(</span>
+        register_graphql_handlers<span class="token punctuation">(</span>
+            app<span class="token operator">=</span>app<span class="token punctuation">,</span>
+            engine_sdl<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/sdl"</span><span class="token punctuation">,</span>
+            engine_modules<span class="token operator">=</span><span class="token punctuation">[</span>
+                <span class="token string">"recipes_manager.query_resolvers"</span><span class="token punctuation">,</span>
+                <span class="token string">"recipes_manager.mutation_resolvers"</span><span class="token punctuation">,</span>
+                <span class="token string">"recipes_manager.subscription_resolvers"</span><span class="token punctuation">,</span>
+                <span class="token string">"recipes_manager.directives.rate_limiting"</span><span class="token punctuation">,</span>
+                <span class="token string">"recipes_manager.directives.auth"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            executor_http_endpoint<span class="token operator">=</span><span class="token string">'/graphql'</span><span class="token punctuation">,</span>
+            executor_http_methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            graphiql_enabled<span class="token operator">=</span><span class="token boolean">True</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recipes_manager-__main__py"></a><a href="#recipes_manager-__main__py" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>recipes_manager/<strong>main</strong>.py</strong></h3>
+<p>This is the entrypoint of our application, we won't go into more details here.</p>
+<pre><code class="hljs css language-python"><span class="token comment">#!/usr/bin/env python</span>
+<span class="token keyword">import</span> sys
+
+<span class="token keyword">from</span> recipes_manager<span class="token punctuation">.</span>app <span class="token keyword">import</span> run
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="launch-the-app"></a><a href="#launch-the-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Launch the app</h2>
+<p>We are now ready to launch our GraphQL API. <em>(Make sure that your shell is inside the virtualenv with the <code>pipenv shell</code> command)</em>.</p>
+<pre><code class="hljs css language-bash">$ python -m recipes_manager
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span> Running on http://0.0.0.0:8080 <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+<span class="token punctuation">(</span>Press CTRL+C to quit<span class="token punctuation">)</span>
+
+</code></pre>
+<p>Your <strong>Recipes Manager GraphQL API</strong> is now live.</p>
+<p>But ... there is nothing in it, yet. We are now going to implement our first resolver.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/0.12.5/tutorial/install-tartiflette"><span class="arrow-prev">← </span><span>3. Install Tartiflette</span></a><a class="docs-next button" href="/docs/0.12.5/tutorial/write-your-resolvers"><span>5. Write your resolvers</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#write-code">Write code</a><ul class="toc-headings"><li><a href="#recipes_manager-sdl-querygraphql"><strong>recipes_manager/sdl/Query.graphql</strong></a></li><li><a href="#recipes_manager-apppy"><strong>recipes_manager/app.py</strong></a></li><li><a href="#recipes_manager-mainpy"><strong>recipes_manager/<strong>main</strong>.py</strong></a></li></ul></li><li><a href="#launch-the-app">Launch the app</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/tartiflette-square-t-white.svg" alt="Tartiflette GraphQL Python Engine" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/tutorial/getting-started">Tutorial</a><a href="/docs/en/api/engine">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/tartiflette" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="http://slack-tartiflette-io.herokuapp.com">Join us on Slack</a><a href="https://twitter.com/dailymotionEng" target="_blank" rel="noreferrer noopener">Twitter @dailymotionEng</a></div><div><h5>More</h5><a href="https://github.com/tartiflette/tartiflette">GitHub</a><a class="github-button" href="https://github.com/tartiflette/tartiflette" data-icon="octicon-star" data-count-href="/tartiflette/tartiflette/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://dailymotion.com" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dailymotion-white.svg" alt="Dailymotion"/></a><section class="copyright">Copyright © 2019 Dailymotion<br/>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
