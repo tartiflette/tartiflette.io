@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Directive · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Tartiflette bases most of its extensibility on directives. A directive will allow you to execute a behavior at different stages:"/><meta name="docsearch:version" content="1.0.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Directive · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="Tartiflette bases most of its extensibility on directives. A directive will allow you to execute a behavior at different stages:"/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-64443-60');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/tartiflette-white.svg" alt="Tartiflette GraphQL Python Engine"/><h2 class="headerTitleWithLogo">Tartiflette GraphQL Python Engine</h2></a><a href="/versions"><h3>1.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/1.0.0/welcome/what-is-tartiflette" target="_self">What is Tartiflette?</a></li><li class="siteNavGroupActive"><a href="/docs/1.0.0/tutorial/getting-started" target="_self">Tutorial</a></li><li class="siteNavGroupActive"><a href="/docs/1.0.0/api/engine" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/docs/1.0.0/plugins/introduction" target="_self">Plugins</a></li><li class=""><a href="/community" target="_self">Community</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/welcome/what-is-tartiflette">What is Tartiflette?</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/getting-started">1. Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/project-initialization">2. Project initialization</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/install-tartiflette">3. Install Tartiflette</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/create-server">4. Create a Tartiflette server</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/write-your-resolvers">5. Write your resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/running-a-query">6. Running a query</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/write-your-mutation-resolvers">7. Write your mutation resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/running-a-mutation">8. Running a mutation</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/add-subscription">9. Add subscription (advanced)</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/running-a-subscription">10. Running a subscription</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial (Advanced)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/extend-with-directives">11. Extend with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/rate-limit-fields-with-directives">12. Rate limit your fields with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/dynamic-introspection">13. Dynamic introspection</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/use-with-docker">14. Use with Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/engine">Engine</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/execution">Execution</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/resolver">Resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/type-resolver">Type resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/subscription">Subscription</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/1.0.0/api/directive">Directive</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/scalar">Scalar</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/error-handling">Error handling</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/schema-registry">Schema Registry</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Plugins</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/plugins/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/plugins/create-a-plugin">Create a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/plugins/use-a-plugin">Use a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/plugins/currated-list">Plugin Index</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/migration-guides/migration-guide-0-0-to-1-0">Moving from v0.x.x to v1.0.x</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API (aiohttp)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api-aiohttp/getting-started">Getting started</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/tartiflette/tartiflette/edit/master/docs/api/directive.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Directive</h1></header><article><div><span><p>Tartiflette bases most of its extensibility on directives. A directive will allow you to execute a behavior at different stages:</p>
+<ul>
+<li><code>on_argument_execution</code>: allows you to wrap the argument execution. <em>(e.g. access rights, validate the input format...)</em></li>
+<li><code>on_post_input_coercion</code>: allows you to hook the execution flow right after an input value/variable has beed coerced (appears in version <code>0.10.0</code>)</li>
+<li><code>on_field_execution</code>: allows you to wrap the field execution. <em>(e.g. resolve the field remotly, apply a specific rate limit on a field...)</em></li>
+<li><code>on_pre_output_coercion</code>: allows you to mutate the result of the resolved value of a field before returning it (appears in version <code>0.10.0</code>)</li>
+<li><code>on_introspection</code>: during an introspection query, allows you to wrap the schema fields to add metadata to fields or even to remove objects <em>(e.g. dynamic introspection based on access rights)</em></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="how-to-declare-a-new-directive"></a><a href="#how-to-declare-a-new-directive" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to declare a new directive?</h2>
+<pre><code class="hljs css language-graphql">directive <span class="token directive function">@myDirective</span><span class="token punctuation">(</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String <span class="token operator">=</span> <span class="token string">"Chuck"</span>
+<span class="token punctuation">)</span> <span class="token keyword">on</span> <span class="token class-name">FIELD_DEFINITION</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Query</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">hello</span><span class="token punctuation">:</span> String <span class="token directive function">@myDirective</span><span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"Norris"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Any<span class="token punctuation">,</span> Callable<span class="token punctuation">,</span> Dict<span class="token punctuation">,</span> Optional<span class="token punctuation">,</span> Union
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Directive
+
+
+@Directive<span class="token punctuation">(</span><span class="token string">"myDirective"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyDirective</span><span class="token punctuation">:</span>
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_argument_execution</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        parent_node<span class="token punctuation">:</span> Union<span class="token punctuation">[</span><span class="token string">"FieldNode"</span><span class="token punctuation">,</span> <span class="token string">"DirectiveNode"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        argument_node<span class="token punctuation">:</span> <span class="token string">"ArgumentNode"</span><span class="token punctuation">,</span>
+        value<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment">######################</span>
+        <span class="token comment"># Add your code here #</span>
+        <span class="token comment">######################</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> next_directive<span class="token punctuation">(</span>parent_node<span class="token punctuation">,</span> argument_node<span class="token punctuation">,</span> value<span class="token punctuation">,</span> ctx<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_post_input_coercion</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        parent_node<span class="token punctuation">:</span> Union<span class="token punctuation">[</span><span class="token string">"VariableDefinitionNode"</span><span class="token punctuation">,</span> <span class="token string">"InputValueDefinitionNode"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        value<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment">######################</span>
+        <span class="token comment"># Add your code here #</span>
+        <span class="token comment">######################</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> next_directive<span class="token punctuation">(</span>parent_node<span class="token punctuation">,</span> value<span class="token punctuation">,</span> ctx<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_field_execution</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_resolver<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        parent<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        info<span class="token punctuation">:</span> <span class="token string">"ResolveInfo"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment">######################</span>
+        <span class="token comment"># Add your code here #</span>
+        <span class="token comment">######################</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> next_resolver<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_pre_output_coercion</span><span class="token punctuation">(</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        value<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        info<span class="token punctuation">:</span> <span class="token string">"ResolveInfo"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment">######################</span>
+        <span class="token comment"># Add your code here #</span>
+        <span class="token comment">######################</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> next_directive<span class="token punctuation">(</span>value<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_introspection</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        introspected_element<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        info<span class="token punctuation">:</span> <span class="token string">"ResolveInfo"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment">######################</span>
+        <span class="token comment"># Add your code here #</span>
+        <span class="token comment">######################</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> next_directive<span class="token punctuation">(</span>introspected_element<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="execution-flow"></a><a href="#execution-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution flow</h2>
+<blockquote>
+<p>Warning: This is valid since <code>0.10.0</code>.</p>
+</blockquote>
+<p>Directive hook execution flow is like:</p>
+<p><img src="/docs/assets/execution-order.png" alt="ExecutionOrder"></p>
+<h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<pre><code class="hljs css language-graphql">directive <span class="token directive function">@directiveField</span> <span class="token keyword">on</span> <span class="token class-name">FIELD</span>
+directive <span class="token directive function">@directiveScalar</span> <span class="token keyword">on</span> <span class="token class-name">SCALAR</span>
+directive <span class="token directive function">@directiveEnum</span> <span class="token keyword">on</span> <span class="token class-name">ENUM</span>
+directive <span class="token directive function">@directiveEnumValue</span> <span class="token keyword">on</span> <span class="token class-name">ENUM_VALUE</span>
+directive <span class="token directive function">@directiveObject</span> <span class="token keyword">on</span> <span class="token class-name">OBJECT</span>
+directive <span class="token directive function">@directiveInputObject</span> <span class="token keyword">on</span> <span class="token class-name">INPUT_OBJECT</span>
+directive <span class="token directive function">@directiveArgument</span> <span class="token keyword">on</span> <span class="token class-name">ARGUMENT</span>
+
+<span class="token keyword">scalar</span> <span class="token class-name">aScalar</span> <span class="token directive function">@directiveScalar</span>
+
+<span class="token keyword">enum</span> <span class="token class-name">anEnum</span> <span class="token directive function">@directiveEnum</span> <span class="token punctuation">{</span>
+  <span class="token constant">ONE</span> <span class="token directive function">@directiveEnumValue</span>
+  <span class="token constant">TWO</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">input</span> anInputObject <span class="token directive function">@directiveInputObject</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">anInputField</span><span class="token punctuation">:</span> aScalar
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">aType</span> <span class="token directive function">@directiveObject</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">aField</span><span class="token punctuation">:</span> aScalar <span class="token directive function">@directiveField</span>
+  <span class="token attr-name">anEnumField</span><span class="token punctuation">:</span> anEnum <span class="token directive function">@directiveField</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Query</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">field1</span><span class="token punctuation">:</span> aType
+  <span class="token attr-name">field2</span><span class="token punctuation">(</span><span class="token attr-name">anArgument</span><span class="token punctuation">:</span> anInputObject <span class="token directive function">@directiveArgument</span><span class="token punctuation">)</span><span class="token punctuation">:</span> aType
+  <span class="token attr-name">field3</span><span class="token punctuation">:</span> anEnum
+<span class="token punctuation">}</span>
+</code></pre>
+<p>with Resolvers as:</p>
+<pre><code class="hljs css language-python"><span class="token decorator annotation punctuation">@Resolver</span><span class="token punctuation">(</span><span class="token string">"Query.field1"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolve_query_field1</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"aField"</span><span class="token punctuation">:</span> <span class="token string">"aValue"</span><span class="token punctuation">,</span> <span class="token string">"anEnumField"</span><span class="token punctuation">:</span><span class="token string">"ONE"</span><span class="token punctuation">}</span>
+
+@Resolver<span class="token punctuation">(</span><span class="token string">"Query.field2"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolve_query_field2</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"aField"</span><span class="token punctuation">:</span> <span class="token string">"aValue"</span><span class="token punctuation">,</span> <span class="token string">"anEnumField"</span><span class="token punctuation">:</span><span class="token string">"TWO"</span><span class="token punctuation">}</span>
+
+@Resolver<span class="token punctuation">(</span><span class="token string">"Query.field3"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolve_query_field3</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">"TWO"</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="query-1"></a><a href="#query-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query 1</h4>
+<pre><code class="hljs"><span class="hljs-attribute">query</span> aQuery {
+  <span class="hljs-section">field1</span> {
+    <span class="hljs-attribute">aField</span>
+    anEnumField
+  }
+}
+</code></pre>
+<p>The resolution of <code>Query.field1</code> will ran:</p>
+<ol>
+<li><code>Query.field1</code> resolver</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveObject</code> of type <code>aType</code></li>
+<li><code>output_coercer</code> for <code>ObjectType</code></li>
+</ol>
+<p>Then the resolution of <code>aType.aField</code> will ran (parrallely ran with <code>aType.anEnumField</code>):</p>
+<ol>
+<li><code>on_field_execution</code> of directive <code>directiveField</code> on <code>aType.aField</code></li>
+<li><code>aType.aField</code> resolver</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveScalar</code> on <code>aScalar</code></li>
+<li><code>output_coercer</code> of the scalar <code>aScalar</code></li>
+</ol>
+<p>The resolution of <code>aType.anEnumField</code> will ran (parrallely ran with <code>aType.aField</code>):</p>
+<ol>
+<li><code>on_field_execution</code> of directive <code>directiveField</code> on <code>aType.anEnumField</code></li>
+<li><code>aType.anEnumField</code> resolver</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveEnumValue</code> cause <code>ONE</code> has a directive</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveEnum</code> of enum <code>anEnum</code></li>
+<li><code>output_coercer</code> for enum</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="query-2"></a><a href="#query-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query 2</h4>
+<pre><code class="hljs"><span class="xml">query aQuery </span><span class="hljs-template-variable">{
+  field2(anArgument: {anInputField: 3}</span><span class="xml">) </span><span class="hljs-template-variable">{
+    aField
+    anEnumField
+  }</span><span class="xml">
+}
+</span></code></pre>
+<p>The resolution of <code>Query.field2</code> will ran:</p>
+<ol>
+<li><code>input_coercer</code> for <code>InputObjectType</code></li>
+<li><code>input_coercer</code> for argument <code>anInputField</code> of type <code>aScalar</code></li>
+<li><code>on_post_input_coercion</code> of directive <code>directiveScalar</code> of scalar <code>aScalar</code></li>
+<li><code>on_post_input_coercion</code> of directive <code>directiveInputObject</code> of type <code>anInputType</code></li>
+<li><code>on_argument_execution</code> of directive <code>directiveArgument</code> for argument <code>anArgument</code></li>
+<li><code>Query.field2</code> resolver</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveObject</code> of type <code>aType</code></li>
+<li><code>output_coercer</code> for <code>ObjectType</code></li>
+</ol>
+<p>Then the resolution of <code>aType.aField</code> will ran (parrallely ran with <code>aType.anEnumField</code>):</p>
+<ol>
+<li><code>on_field_execution</code> of directive <code>directiveField</code> on <code>aType.aField</code></li>
+<li><code>aType.aField</code> resolver</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveScalar</code> on <code>aScalar</code></li>
+<li><code>output_coercer</code> of the scalar <code>aScalar</code></li>
+</ol>
+<p>The resolution of <code>aType.anEnumField</code> will ran (parrallely ran with <code>aType.aField</code>):</p>
+<ol>
+<li><code>on_field_execution</code> of directive <code>directiveField</code> on <code>aType.anEnumField</code></li>
+<li><code>aType.anEnumField</code> resolver (method <code>atype_anenumfield_resolver</code> returned &quot;ONE&quot;)</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveEnumValue</code> cause <code>ONE</code> has a directive</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveEnum</code> of enum <code>anEnum</code></li>
+<li><code>output_coercer</code> for enum</li>
+</ol>
+<h4><a class="anchor" aria-hidden="true" id="query-3"></a><a href="#query-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Query 3</h4>
+<pre><code class="hljs"><span class="hljs-attribute">query</span> aQuery {
+  <span class="hljs-attribute">field3</span>
+}
+</code></pre>
+<p>The resolution of <code>Query.field3</code> will ran:</p>
+<ol>
+<li><code>Query.field3</code> resolver</li>
+<li><code>on_pre_output_coercion</code> of directive <code>directiveEnum</code> of enum <code>anEnum</code></li>
+<li><code>output_coercer</code> for <code>EnumType</code></li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/1.0.0/api/subscription"><span class="arrow-prev">← </span><span>Subscription</span></a><a class="docs-next button" href="/docs/1.0.0/api/scalar"><span>Scalar</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#how-to-declare-a-new-directive">How to declare a new directive?</a></li><li><a href="#execution-flow">Execution flow</a><ul class="toc-headings"><li><a href="#example">Example</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/tartiflette-square-t-white.svg" alt="Tartiflette GraphQL Python Engine" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/tutorial/getting-started">Tutorial</a><a href="/docs/en/api/engine">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/tartiflette" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="http://slack-tartiflette-io.herokuapp.com">Join us on Slack</a><a href="https://twitter.com/dailymotionEng" target="_blank" rel="noreferrer noopener">Twitter @dailymotionEng</a></div><div><h5>More</h5><a href="https://github.com/tartiflette/tartiflette">GitHub</a><a class="github-button" href="https://github.com/tartiflette/tartiflette" data-icon="octicon-star" data-count-href="/tartiflette/tartiflette/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://dailymotion.com" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dailymotion-white.svg" alt="Dailymotion"/></a><section class="copyright">Copyright © 2019 Dailymotion<br/>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></section></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
