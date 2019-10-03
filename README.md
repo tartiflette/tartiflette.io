@@ -14,3 +14,12 @@ cd tartiflette.io
 make import-docs
 make run
 ```
+
+## How to pin a new version
+
+```bash
+git clone git@github.com:tartiflette/tartiflette.io.git
+cd tartiflette.io
+./create-new-version.sh 1.1.0
+git commit -a -m "doc: new version 1.1.0"
+```
