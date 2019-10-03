@@ -1,7 +1,7 @@
 name: build and publish tartiflette.io every hour
 on:
   schedule:
-    - cron:  '* */1 * * *'
+    - cron:  '0 */1 * * *'
 jobs:
   build:
     name: build tartiflette.io
