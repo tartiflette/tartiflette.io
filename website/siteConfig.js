@@ -102,6 +102,11 @@ const siteConfig = {
   mediumUrl: "https://medium.com/dailymotion",
   twitterUsername: "dailymotionEng",
   twitterUrl: "https://twitter.com/dailymotionEng",
+
+  algolia: {
+    apiKey: '7703b63e56ba7316c49e8acae726a2ab',
+    indexName: 'tartiflette',
+  },
 };
 
 module.exports = siteConfig;
