@@ -62,10 +62,18 @@
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/tartiflette/tartiflette/edit/master/docs/api/directive.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Directive</h1></header><article><div><span><p>Tartiflette bases most of its extensibility on directives. A directive will allow you to execute a behavior at different stages:</p>
 <ul>
 <li><code>on_argument_execution</code>: allows you to wrap the argument execution. <em>(e.g. access rights, validate the input format...)</em></li>
-<li><code>on_post_input_coercion</code>: allows you to hook the execution flow right after an input value/variable has beed coerced (appears in version <code>0.10.0</code>)</li>
 <li><code>on_field_execution</code>: allows you to wrap the field execution. <em>(e.g. resolve the field remotly, apply a specific rate limit on a field...)</em></li>
-<li><code>on_pre_output_coercion</code>: allows you to mutate the result of the resolved value of a field before returning it (appears in version <code>0.10.0</code>)</li>
 <li><code>on_introspection</code>: during an introspection query, allows you to wrap the schema fields to add metadata to fields or even to remove objects <em>(e.g. dynamic introspection based on access rights)</em></li>
+</ul>
+<p>New in <code>0.10.0</code>:</p>
+<ul>
+<li><code>on_post_input_coercion</code>: allows you to hook the execution flow right after an input value/variable has beed coerced</li>
+<li><code>on_pre_output_coercion</code>: allows you to mutate the result of the resolved value of a field before returning it</li>
+</ul>
+<p>New in <code>1.1.0</code>:</p>
+<ul>
+<li><code>on_schema_execution</code>: allows you to wrap the execution of a request (<code>QUERY</code> or <code>MUTATION</code>) in order to manipulate the <code>initial_value</code> or add extensions to the global result dict.</li>
+<li><code>on_schema_subscription</code>: allows you to wrap the async generator of a <code>SUBSCRIPTION</code> in order to manipulate the <code>initial_value</code> or add extensions to the gobal result dict.</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="how-to-declare-a-new-directive"></a><a href="#how-to-declare-a-new-directive" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to declare a new directive?</h2>
 <pre><code class="hljs css language-graphql">directive <span class="token directive function">@myDirective</span><span class="token punctuation">(</span>
@@ -125,6 +133,7 @@
         <span class="token keyword">return</span> <span class="token keyword">await</span> next_resolver<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
 
     <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_pre_output_coercion</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
         directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
         next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
         value<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
@@ -148,13 +157,74 @@
         <span class="token comment"># Add your code here #</span>
         <span class="token comment">######################</span>
         <span class="token keyword">return</span> <span class="token keyword">await</span> next_directive<span class="token punctuation">(</span>introspected_element<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_schema_execution</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        schema<span class="token punctuation">:</span> <span class="token string">"GraphQLSchema"</span><span class="token punctuation">,</span>
+        document<span class="token punctuation">:</span> <span class="token string">"DocumentNode"</span><span class="token punctuation">,</span>
+        parsing_errors<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token string">"TartifletteError"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        operation_name<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        context<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        variables<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        initial_value<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">######################</span>
+        <span class="token comment"># Add your code here #</span>
+        <span class="token comment">######################</span>
+        results <span class="token operator">=</span> <span class="token keyword">await</span> next_directive<span class="token punctuation">(</span>
+            schema<span class="token punctuation">,</span>
+            document<span class="token punctuation">,</span>
+            parsing_errors<span class="token punctuation">,</span>
+            operation_name<span class="token punctuation">,</span>
+            context<span class="token punctuation">,</span>
+            variables<span class="token punctuation">,</span>
+            initial_value<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+        <span class="token comment">###############</span>
+        <span class="token comment"># Or/And here #</span>
+        <span class="token comment">###############</span>
+        <span class="token keyword">return</span> results
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_schema_subscription</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        schema<span class="token punctuation">:</span> <span class="token string">"GraphQLSchema"</span><span class="token punctuation">,</span>
+        document<span class="token punctuation">:</span> <span class="token string">"DocumentNode"</span><span class="token punctuation">,</span>
+        parsing_errors<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token string">"TartifletteError"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        operation_name<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        context<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        variables<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        initial_value<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment">######################</span>
+        <span class="token comment"># Add your code here #</span>
+        <span class="token comment">######################</span>
+        <span class="token keyword">async</span> <span class="token keyword">for</span> result <span class="token keyword">in</span> next_directive<span class="token punctuation">(</span>
+            schema<span class="token punctuation">,</span>
+            document<span class="token punctuation">,</span>
+            parsing_errors<span class="token punctuation">,</span>
+            operation_name<span class="token punctuation">,</span>
+            context<span class="token punctuation">,</span>
+            variables<span class="token punctuation">,</span>
+            initial_value<span class="token punctuation">,</span>
+        <span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment">###############</span>
+            <span class="token comment"># Or/And here #</span>
+            <span class="token comment">###############</span>
+            <span class="token keyword">yield</span> result
+            <span class="token comment">###############</span>
+            <span class="token comment"># Or/And here #</span>
+            <span class="token comment">###############</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="execution-flow"></a><a href="#execution-flow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execution flow</h2>
 <blockquote>
-<p>Warning: This is valid since <code>0.10.0</code>.</p>
+<p>Warning: This is valid since <code>1.1.0</code>.</p>
 </blockquote>
 <p>Directive hook execution flow is like:</p>
-<p><img src="/docs/assets/execution-order.png" alt="ExecutionOrder"></p>
+<p><img src="/docs/assets/execution-order-v1-1-0.png" alt="ExecutionOrder"></p>
 <h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
 <pre><code class="hljs css language-graphql">directive <span class="token directive function">@directiveField</span> <span class="token keyword">on</span> <span class="token class-name">FIELD</span>
 directive <span class="token directive function">@directiveScalar</span> <span class="token keyword">on</span> <span class="token class-name">SCALAR</span>
@@ -163,6 +233,7 @@ directive <span class="token directive function">@directiveEnumValue</span> <spa
 directive <span class="token directive function">@directiveObject</span> <span class="token keyword">on</span> <span class="token class-name">OBJECT</span>
 directive <span class="token directive function">@directiveInputObject</span> <span class="token keyword">on</span> <span class="token class-name">INPUT_OBJECT</span>
 directive <span class="token directive function">@directiveArgument</span> <span class="token keyword">on</span> <span class="token class-name">ARGUMENT</span>
+directive <span class="token directive function">@directiveSchema</span> <span class="token keyword">on</span> <span class="token class-name">SCHEMA</span>
 
 <span class="token keyword">scalar</span> <span class="token class-name">aScalar</span> <span class="token directive function">@directiveScalar</span>
 
@@ -184,6 +255,10 @@ directive <span class="token directive function">@directiveArgument</span> <span
   <span class="token attr-name">field1</span><span class="token punctuation">:</span> aType
   <span class="token attr-name">field2</span><span class="token punctuation">(</span><span class="token attr-name">anArgument</span><span class="token punctuation">:</span> anInputObject <span class="token directive function">@directiveArgument</span><span class="token punctuation">)</span><span class="token punctuation">:</span> aType
   <span class="token attr-name">field3</span><span class="token punctuation">:</span> anEnum
+<span class="token punctuation">}</span>
+
+<span class="token keyword">schema</span> <span class="token directive function">@directiveSchema</span> <span class="token punctuation">{</span>
+    <span class="token attr-name">query</span><span class="token punctuation">:</span> Query
 <span class="token punctuation">}</span>
 </code></pre>
 <p>with Resolvers as:</p>
@@ -209,12 +284,14 @@ directive <span class="token directive function">@directiveArgument</span> <span
 </code></pre>
 <p>The resolution of <code>Query.field1</code> will ran:</p>
 <ol>
+<li><code>on_schema_execution</code> of directive <code>directiveSchema</code>.</li>
 <li><code>Query.field1</code> resolver</li>
 <li><code>on_pre_output_coercion</code> of directive <code>directiveObject</code> of type <code>aType</code></li>
 <li><code>output_coercer</code> for <code>ObjectType</code></li>
 </ol>
 <p>Then the resolution of <code>aType.aField</code> will ran (parrallely ran with <code>aType.anEnumField</code>):</p>
 <ol>
+<li><code>on_schema_execution</code> of directive <code>directiveSchema</code>.</li>
 <li><code>on_field_execution</code> of directive <code>directiveField</code> on <code>aType.aField</code></li>
 <li><code>aType.aField</code> resolver</li>
 <li><code>on_pre_output_coercion</code> of directive <code>directiveScalar</code> on <code>aScalar</code></li>
@@ -222,6 +299,7 @@ directive <span class="token directive function">@directiveArgument</span> <span
 </ol>
 <p>The resolution of <code>aType.anEnumField</code> will ran (parrallely ran with <code>aType.aField</code>):</p>
 <ol>
+<li><code>on_schema_execution</code> of directive <code>directiveSchema</code>.</li>
 <li><code>on_field_execution</code> of directive <code>directiveField</code> on <code>aType.anEnumField</code></li>
 <li><code>aType.anEnumField</code> resolver</li>
 <li><code>on_pre_output_coercion</code> of directive <code>directiveEnumValue</code> cause <code>ONE</code> has a directive</li>
@@ -238,6 +316,7 @@ directive <span class="token directive function">@directiveArgument</span> <span
 </span></code></pre>
 <p>The resolution of <code>Query.field2</code> will ran:</p>
 <ol>
+<li><code>on_schema_execution</code> of directive <code>directiveSchema</code></li>
 <li><code>input_coercer</code> for <code>InputObjectType</code></li>
 <li><code>input_coercer</code> for argument <code>anInputField</code> of type <code>aScalar</code></li>
 <li><code>on_post_input_coercion</code> of directive <code>directiveScalar</code> of scalar <code>aScalar</code></li>
@@ -249,6 +328,7 @@ directive <span class="token directive function">@directiveArgument</span> <span
 </ol>
 <p>Then the resolution of <code>aType.aField</code> will ran (parrallely ran with <code>aType.anEnumField</code>):</p>
 <ol>
+<li><code>on_schema_execution</code> of directive <code>directiveSchema</code>.</li>
 <li><code>on_field_execution</code> of directive <code>directiveField</code> on <code>aType.aField</code></li>
 <li><code>aType.aField</code> resolver</li>
 <li><code>on_pre_output_coercion</code> of directive <code>directiveScalar</code> on <code>aScalar</code></li>
@@ -256,6 +336,7 @@ directive <span class="token directive function">@directiveArgument</span> <span
 </ol>
 <p>The resolution of <code>aType.anEnumField</code> will ran (parrallely ran with <code>aType.aField</code>):</p>
 <ol>
+<li><code>on_schema_execution</code> of directive <code>directiveSchema</code>.</li>
 <li><code>on_field_execution</code> of directive <code>directiveField</code> on <code>aType.anEnumField</code></li>
 <li><code>aType.anEnumField</code> resolver (method <code>atype_anenumfield_resolver</code> returned &quot;ONE&quot;)</li>
 <li><code>on_pre_output_coercion</code> of directive <code>directiveEnumValue</code> cause <code>ONE</code> has a directive</li>
@@ -269,6 +350,7 @@ directive <span class="token directive function">@directiveArgument</span> <span
 </code></pre>
 <p>The resolution of <code>Query.field3</code> will ran:</p>
 <ol>
+<li><code>on_schema_execution</code> of directive <code>directiveSchema</code>.</li>
 <li><code>Query.field3</code> resolver</li>
 <li><code>on_pre_output_coercion</code> of directive <code>directiveEnum</code> of enum <code>anEnum</code></li>
 <li><code>output_coercer</code> for <code>EnumType</code></li>

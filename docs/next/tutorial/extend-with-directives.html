@@ -140,6 +140,7 @@
         <span class="token keyword">return</span> <span class="token keyword">await</span> next_resolver<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
 
     <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_pre_output_coercion</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
         directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
         next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
         value<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>

@@ -108,7 +108,10 @@
 <span class="token keyword">from</span> tartiflette_aiohttp <span class="token keyword">import</span> register_graphql_handlers
 
 
-<span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Entry point of the application.
+    """</span>
     web<span class="token punctuation">.</span>run_app<span class="token punctuation">(</span>
         register_graphql_handlers<span class="token punctuation">(</span>
             app<span class="token operator">=</span>web<span class="token punctuation">.</span>Application<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
