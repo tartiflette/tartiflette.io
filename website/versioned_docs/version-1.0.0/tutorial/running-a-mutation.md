@@ -26,4 +26,4 @@ mutation {
 }
 ```
 
-![Update recipe](/docs/assets/update-recipe.png)
+![Update recipe](/docs/assets/update-recipe-v1.png)

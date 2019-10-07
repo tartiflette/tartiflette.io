@@ -106,7 +106,7 @@ This means that if you were used to "hard" access your arguments (especially the
 For instance, if we make this request:
 ```graphql
 mutation {
-  addNews(input: {title: "Title", content: "Content"}) {
+  addNews(input: {title: "Title", resume: null, content: "Content"}) {
     id
     title
     resume
