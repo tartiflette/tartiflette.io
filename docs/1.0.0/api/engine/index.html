@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Engine · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The way to generate a Tartiflette engine is pretty simple, most of the time, you will use the `create_engine` function, exposed in the `tartiflette` package. This function performs all the necessary tasks needed to build your engine."/><meta name="docsearch:version" content="1.0.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Engine · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="The way to generate a Tartiflette engine is pretty simple, most of the time, you will use the `create_engine` function, exposed in the `tartiflette` package. This function performs all the necessary tasks needed to build your engine."/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-64443-60');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/tartiflette-white.svg" alt="Tartiflette GraphQL Python Engine"/><h2 class="headerTitleWithLogo">Tartiflette GraphQL Python Engine</h2></a><a href="/versions"><h3>1.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/1.0.0/welcome/what-is-tartiflette" target="_self">What is Tartiflette?</a></li><li class="siteNavGroupActive"><a href="/docs/1.0.0/tutorial/getting-started" target="_self">Tutorial</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/1.0.0/api/engine" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/docs/1.0.0/plugins/introduction" target="_self">Plugins</a></li><li class=""><a href="/community" target="_self">Community</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/welcome/what-is-tartiflette">What is Tartiflette?</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/getting-started">1. Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/project-initialization">2. Project initialization</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/install-tartiflette">3. Install Tartiflette</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/create-server">4. Create a Tartiflette server</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/write-your-resolvers">5. Write your resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/running-a-query">6. Running a query</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/write-your-mutation-resolvers">7. Write your mutation resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/running-a-mutation">8. Running a mutation</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/add-subscription">9. Add subscription (advanced)</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/running-a-subscription">10. Running a subscription</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial (Advanced)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/extend-with-directives">11. Extend with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/rate-limit-fields-with-directives">12. Rate limit your fields with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/dynamic-introspection">13. Dynamic introspection</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/tutorial/use-with-docker">14. Use with Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/1.0.0/api/engine">Engine</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/execution">Execution</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/resolver">Resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/type-resolver">Type resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/subscription">Subscription</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/directive">Directive</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/scalar">Scalar</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/error-handling">Error handling</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api/schema-registry">Schema Registry</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Plugins</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/plugins/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/plugins/create-a-plugin">Create a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/plugins/use-a-plugin">Use a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.0.0/plugins/currated-list">Plugin Index</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/migration-guides/migration-guide-0-0-to-1-0">Moving from v0.x.x to v1.0.x</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API (aiohttp)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.0.0/api-aiohttp/getting-started">Getting started</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/tartiflette/tartiflette/edit/master/docs/api/engine.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Engine</h1></header><article><div><span><p>The way to generate a Tartiflette engine is pretty simple, most of the time, you will use the <code>create_engine</code> function, exposed in the <code>tartiflette</code> package. This function performs all the necessary tasks needed to build your engine.</p>
+<h2><a class="anchor" aria-hidden="true" id="create_engine-prepares-and-cooks-your-engine"></a><a href="#create_engine-prepares-and-cooks-your-engine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>create_engine</code> prepares and cooks your engine</h2>
+<p><code>create_engine</code> is the easiest and quickiest way to instanciate and build a Tartiflette engine. Behind the scene, this factory will implements the regular <a href="#cook-your-tartiflette">cooking process</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="using-the-sdl-_schema-definition-language-_-parameter-with-different-types"></a><a href="#using-the-sdl-_schema-definition-language-_-parameter-with-different-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the SDL <em>(Schema Definition Language)</em> parameter with different types</h3>
+<h4><a class="anchor" aria-hidden="true" id="when-the-sdl-parameter-contains-the-sdl-as-a-raw-string"></a><a href="#when-the-sdl-parameter-contains-the-sdl-as-a-raw-string" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>When the <code>sdl</code> parameter contains the SDL as a raw string</h4>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    <span class="token triple-quoted-string string">"""
+    type Query {
+        hello: String
+    }
+    """</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="when-the-sdl-parameter-contains-a-path-to-a-file"></a><a href="#when-the-sdl-parameter-contains-a-path-to-a-file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>When the <code>sdl</code> parameter contains a path to a file</h4>
+<p>The file path specified has to contain the full Schema Definition Language.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    <span class="token string">"/User/chuck/workspace/mytartiflette/schema.graphql"</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="when-the-sdl-parameter-contains-a-list-of-file-path"></a><a href="#when-the-sdl-parameter-contains-a-list-of-file-path" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>When the <code>sdl</code> parameter contains a list of file path</h4>
+<p>Every file will be concatenated, in the order of the provided list.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    <span class="token punctuation">[</span>
+        <span class="token string">"/User/chuck/workspace/mytartiflette/schema_query.graphql"</span><span class="token punctuation">,</span>
+        <span class="token string">"/User/chuck/workspace/mytartiflette/schema_mutation.graphql"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="when-the-sdl-parameter-contains-a-path-to-a-directory"></a><a href="#when-the-sdl-parameter-contains-a-path-to-a-directory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>When the <code>sdl</code> parameter contains a path to a directory</h4>
+<p>Every file which ends with <code>.graphql</code> <em>(or <code>.sdl</code>)</em> will be concatenated in lexicographical order.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span><span class="token string">"/User/chuck/workspace/mytartiflette"</span><span class="token punctuation">)</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="advanced-constructor"></a><a href="#advanced-constructor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced constructor</h3>
+<p>The <code>create_engine</code> function provides an advanced interface for initialization. It accepts multiple parameters:</p>
+<ul>
+<li><code>sdl</code> <em>(Union[str, List[str]])</em>: raw SDL, path or list of file path/directory from which retrieve the SDL (more detail above)</li>
+<li><code>schema_name</code> <em>(str = &quot;default&quot;)</em>: name of the schema represented by the provided SDL (<a href="/docs/1.0.0/api/schema-registry">more detail here</a>)</li>
+<li><code>error_coercer</code> <em>(Callable[[Exception, Dict[str, Any]], Dict[str, Any]])</em>: callable used to coerced an exception into a GraphQL valid output format (<a href="#parameter-error_coercer">more detail here</a>)</li>
+<li><code>custom_default_resolver</code> <em>(Optional[Callable])</em>: callable used to resolve fields which doesn't implements a dedicated resolver (useful if you want to override the behavior for resolving a field, e.g. from <code>snake_case</code> to <code>camelCase</code> and vice versa) (<a href="#parameter-custom_default_resolver">more detail here</a>)</li>
+<li><code>custom_default_type_resolver</code> <em>(Optional[Callable])</em>: callable that will replace the tartiflette <code>default_type_resolver</code> (will be called on abstract types to deduct the type of a result) (<a href="#parameter-custom_default_type_resolver">more detail here</a>)</li>
+<li><code>modules</code> <em>(Optional[Union[str, List[str], List[Dict[str, Any]]]])</em>: list of string containing the name of the modules you want the engine to import, usually this modules contains your <code>@Resolvers</code>, <code>@Directives</code>, <code>@Scalar</code> or <code>@Subscription</code> code (<a href="#parameter-modules">more detail here</a>)</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="parameter-error_coercer"></a><a href="#parameter-error_coercer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameter: <code>error_coercer</code></h4>
+<p>The main objective of the <code>error_coercer</code> is to provide you a way to extend the behavior when an exception is raised into Tartiflette.</p>
+<p>For instance:</p>
+<ul>
+<li>add a log entry when a third-party exceptions is raised <em>(e.g <code>pymsql</code>, <code>redis</code>)</em>.</li>
+<li>hide technical message's exception for production environment <em>(don't expose your internal stack to the outside world)</em></li>
+</ul>
+<p><code>error_coercer</code> <strong>SHOULDN'T</strong> be used for custom functional exception, for this common use-case, please take a look of the <a href="/docs/1.0.0/api/error-handling"><code>TartifletteError</code> and its documentation's page</a>.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">import</span> logging
+
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Any<span class="token punctuation">,</span> Dict
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+logger <span class="token operator">=</span> logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">CustomException</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> type_name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span><span class="token builtin">type</span> <span class="token operator">=</span> type_name
+        self<span class="token punctuation">.</span>message <span class="token operator">=</span> message
+
+
+<span class="token keyword">def</span> <span class="token function">my_error_coercer</span><span class="token punctuation">(</span>
+    exception<span class="token punctuation">:</span> Exception<span class="token punctuation">,</span> error<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span>
+<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>exception<span class="token punctuation">,</span> CustomException<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">"Unable to reach the Storage host."</span><span class="token punctuation">)</span>
+        error<span class="token punctuation">[</span><span class="token string">"extensions"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">=</span> exception<span class="token punctuation">.</span><span class="token builtin">type</span>
+    <span class="token keyword">return</span> error
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    <span class="token string">"my_sdl.graphql"</span><span class="token punctuation">,</span>
+    error_coercer<span class="token operator">=</span>my_error_coercer<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="parameter-custom_default_resolver"></a><a href="#parameter-custom_default_resolver" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameter: <code>custom_default_resolver</code></h4>
+<p>The <code>custom_default_resolver</code> parameter is here to provide an easy way to override the default resolver used internaly by Tartiflette during the execution. The default resolver is the resolver which is used for each field which doesn't implements a dedicated resolver (meaning a field which doesn't implement a callable decorated with <code>@Resolver</code>). It can be useful to override the behavior for resolving a field, for instance from <code>snake_case</code> to <code>camelCase</code> and vice versa.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">my_default_resolver</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> arguments<span class="token punctuation">,</span> context<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    do_ing_some_thin_gs <span class="token operator">=</span> <span class="token number">42</span>
+    <span class="token keyword">return</span> a_value
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    <span class="token string">"my_sdl.graphql"</span><span class="token punctuation">,</span>
+    custom_default_resolver<span class="token operator">=</span>my_default_resolver<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="parameter-custom_default_type_resolver"></a><a href="#parameter-custom_default_type_resolver" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameter: <code>custom_default_type_resolver</code></h4>
+<p>The <code>custom_default_type_resolver</code> parameter is here to provide an easy way to override the default type resolver used internaly by Tartiflette during the execution. The default type resolver is the resolver which is used for each abstract field which doesn't implements a dedicated type resolver. It can be useful to override the behavior for resolving the <code>__typename</code> of a field.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">my_default_type_resolver</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">,</span> abstract_type<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> parent<span class="token punctuation">[</span><span class="token string">"__typename"</span><span class="token punctuation">]</span>
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    <span class="token string">"my_sdl.graphql"</span><span class="token punctuation">,</span>
+    custom_default_type_resolver<span class="token operator">=</span>my_default_type_resolver<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="parameter-modules"></a><a href="#parameter-modules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameter: <code>modules</code></h4>
+<p>Prior creating the Tartiflette engine, all your code must be decoratored by these following ones to be taken into account:</p>
+<ul>
+<li><code>@Resolver</code></li>
+<li><code>@TypeResolver</code></li>
+<li><code>@Subscription</code></li>
+<li><code>@Scalar</code></li>
+<li><code>@Directive</code></li>
+</ul>
+<p>Doing it by yourself could be verbose and generate a lot of imports.</p>
+<p>Both for your internal code and the plugins management, Tartiflette provides a <code>modules</code> parameter which give you the ability to specify all the internal and external modules you want to import. In addition to the module, you will be able to specify a configuration, which will be mostly used by the <a href="/docs/1.0.0/plugins/introduction">Tartiflette plugin approach</a>.</p>
+<p>This allow you to have a cleaner code by doing this:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/sdl"</span><span class="token punctuation">,</span>
+    modules<span class="token operator">=</span><span class="token punctuation">[</span>
+        <span class="token string">"recipes_manager.query_resolvers"</span><span class="token punctuation">,</span>
+        <span class="token string">"recipes_manager.mutation_resolvers"</span><span class="token punctuation">,</span>
+        <span class="token string">"recipes_manager.subscription_resolvers"</span><span class="token punctuation">,</span>
+        <span class="token string">"recipes_manager.directives.auth"</span><span class="token punctuation">,</span>
+        <span class="token string">"recipes_manager.directives.rate_limiting"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>instead of:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">import</span> recipes_manager<span class="token punctuation">.</span>query_resolvers
+<span class="token keyword">import</span> recipes_manager<span class="token punctuation">.</span>mutation_resolvers
+<span class="token keyword">import</span> recipes_manager<span class="token punctuation">.</span>subscription_resolvers
+<span class="token keyword">import</span> recipes_manager<span class="token punctuation">.</span>directives<span class="token punctuation">.</span>auth
+<span class="token keyword">import</span> recipes_manager<span class="token punctuation">.</span>directives<span class="token punctuation">.</span>rate_limiting
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/sdl"</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h5><a class="anchor" aria-hidden="true" id="giving-configuration-to-a-module"></a><a href="#giving-configuration-to-a-module" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Giving configuration to a module</h5>
+<p>As explain above, the <code>modules</code> parameter can be used to provide a list of modules to import but sometimes you will need to provide some configuration to some modules. In order to do that, instead of providing a simple string which target to the module, you will have to fill in a dictionnary with a <code>name</code> parameter which target to the module and a <code>config</code> key which will contains the configuration needed by the module:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> create_engine
+
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span>
+    os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/sdl"</span><span class="token punctuation">,</span>
+    modules<span class="token operator">=</span><span class="token punctuation">[</span>
+        <span class="token string">"recipes_manager.query_resolvers"</span><span class="token punctuation">,</span>
+        <span class="token string">"recipes_manager.mutation_resolvers"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"a.module.that.needs.config"</span><span class="token punctuation">,</span> <span class="token string">"config"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"key"</span><span class="token punctuation">:</span> <span class="token string">"value"</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"b.module.that.needs.config"</span><span class="token punctuation">,</span> <span class="token string">"config"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">"key"</span><span class="token punctuation">:</span> <span class="token string">"value"</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="advanced-instanciation"></a><a href="#advanced-instanciation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Advanced instanciation</h2>
+<p>For those who want to integrate Tartiflette in advanced use-cases. You could be interested by owning the process of building an <code>Engine</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="why-owning-the-cooking-building-process-of-tartiflette"></a><a href="#why-owning-the-cooking-building-process-of-tartiflette" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why owning the cooking (building) process of Tartiflette?</h3>
+<p>The cooking process of Tartiflette is equals to a <code>build</code> process on another library, it will prepare your engine to be executed. Thus, it's useless to say that an engine instance can not be executed without beeing cooked. Like the meal, you can not eat a tartiflette without cooking it first. That's it.</p>
+<p>Customize the cooking process is interesting to integrate Tartiflette into another library, like <code>aiohttp</code>, <code>starlette</code>, <code>django</code> and so one.</p>
+<blockquote>
+<p>Note: <code>tartiflette-aiohttp</code> has its own flow to manage the cooking process of the engine.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="cook-your-tartiflette"></a><a href="#cook-your-tartiflette" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cook()</code> your Tartiflette</h3>
+<p>As specified above, the <code>Engine</code> needs to be <code>cook()</code> before being executed. Here are the sequence to execute a query on an <code>Engine</code> instance.</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Engine
+
+
+<span class="token comment"># 1. Create an instance of the Engine</span>
+engine <span class="token operator">=</span> Engine<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 2. Cook (build) the engine to prepare it to be executed</span>
+<span class="token keyword">await</span> engine<span class="token punctuation">.</span>cook<span class="token punctuation">(</span>
+    <span class="token triple-quoted-string string">"""
+    type Query {
+        hello: String
+    }
+    """</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment"># 3. Execute a GraphQL Query</span>
+<span class="token keyword">await</span> engine<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token string">"query { hello )"</span><span class="token punctuation">)</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="cook-interface"></a><a href="#cook-interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>cook()</code> interface</h4>
+<p>The <code>cook</code> method is asynchronous, this <em>strong choice</em> will allow us to execute asynchronous tasks during the building process, like:</p>
+<ul>
+<li>fetching SDL from another API</li>
+<li>fetch third-parties services <em>(database structure, cloud provider objects ...)</em></li>
+<li>fetch schema from a schema manager</li>
+</ul>
+<pre><code class="hljs css language-python"><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">cook</span><span class="token punctuation">(</span>
+    self<span class="token punctuation">,</span>
+    sdl<span class="token punctuation">:</span> Union<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+    error_coercer<span class="token punctuation">:</span> Callable<span class="token punctuation">[</span><span class="token punctuation">[</span>Exception<span class="token punctuation">,</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+    custom_default_resolver<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Callable<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+    modules<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Union<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span> List<span class="token punctuation">[</span>Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+    schema_name<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+</code></pre>
+<ul>
+<li><code>sdl</code> <em>(Union[str, List[str]])</em>: raw SDL, path or list of file path/directory from which retrieve the SDL (more detail above)</li>
+<li><code>error_coercer</code> <em>(Callable[[Exception, Dict[str, Any]], Dict[str, Any]])</em>: callable used to coerced an exception into a GraphQL valid output format (<a href="#parameter-error_coercer">more detail here</a>)</li>
+<li><code>custom_default_resolver</code> <em>(Optional[Callable])</em>: callable used to resolve fields which doesn't implements a dedicated resolver (useful if you want to override the behavior for resolving a field, e.g. from <code>snake_case</code> to <code>camelCase</code> and vice versa) (<a href="#parameter-custom_default_resolver">more detail here</a>)</li>
+<li><code>custom_default_type_resolver</code> <em>(Optional[Callable])</em>: callable that will replace the tartiflette <code>default_type_resolver</code> (will be called on abstract types to deduct the type of a result) (<a href="#parameter-custom_default_type_resolver">more detail here</a>)</li>
+<li><code>modules</code> <em>(Optional[Union[str, List[str], List[Dict[str, Any]]]])</em>: list of string containing the name of the modules you want the engine to import, usually this modules contains your <code>@Resolvers</code>, <code>@Directives</code>, <code>@Scalar</code> or <code>@Subscription</code> code (<a href="#parameter-modules">more detail here</a>)</li>
+<li><code>schema_name</code> <em>(str = &quot;default&quot;)</em>: name of the schema represented by the provided SDL (<a href="/docs/1.0.0/api/schema-registry">more detail here</a>)</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/1.0.0/tutorial/use-with-docker"><span class="arrow-prev">← </span><span>14. Use with Docker</span></a><a class="docs-next button" href="/docs/1.0.0/api/execution"><span>Execution</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#create_engine-prepares-and-cooks-your-engine"><code>create_engine</code> prepares and cooks your engine</a><ul class="toc-headings"><li><a href="#using-the-sdl-schema-definition-language-parameter-with-different-types">Using the SDL <em>(Schema Definition Language)</em> parameter with different types</a></li><li><a href="#advanced-constructor">Advanced constructor</a></li></ul></li><li><a href="#advanced-instanciation">Advanced instanciation</a><ul class="toc-headings"><li><a href="#why-owning-the-cooking-building-process-of-tartiflette">Why owning the cooking (building) process of Tartiflette?</a></li><li><a href="#cook-your-tartiflette"><code>cook()</code> your Tartiflette</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/tartiflette-square-t-white.svg" alt="Tartiflette GraphQL Python Engine" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/tutorial/getting-started">Tutorial</a><a href="/docs/en/api/engine">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/tartiflette" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="http://slack-tartiflette-io.herokuapp.com">Join us on Slack</a><a href="https://twitter.com/dailymotionEng" target="_blank" rel="noreferrer noopener">Twitter @dailymotionEng</a></div><div><h5>More</h5><a href="https://github.com/tartiflette/tartiflette">GitHub</a><a class="github-button" href="https://github.com/tartiflette/tartiflette" data-icon="octicon-star" data-count-href="/tartiflette/tartiflette/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://dailymotion.com" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dailymotion-white.svg" alt="Dailymotion"/></a><section class="copyright">Copyright © 2019 Dailymotion<br/>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '7703b63e56ba7316c49e8acae726a2ab',
+                indexName: 'tartiflette',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
