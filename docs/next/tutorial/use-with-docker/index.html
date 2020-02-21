@@ -64,11 +64,11 @@
 <p>This <code>Dockerfile</code> includes:</p>
 <ul>
 <li>pipenv</li>
-<li><strong>tartiflette</strong> dependencies <code>cmake</code>, <code>bison</code> and <code>flex</code></li>
+<li><strong>tartiflette</strong> dependencies <code>cmake</code>.</li>
 </ul>
 <pre><code class="hljs css language-dockerfile"><span class="hljs-keyword">FROM</span> python:<span class="hljs-number">3.7</span>.<span class="hljs-number">3</span>
 
-<span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y cmake bison flex</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; apt-get install -y cmake</span>
 
 <span class="hljs-keyword">RUN</span><span class="bash"> pip install --user pipenv</span>
 
