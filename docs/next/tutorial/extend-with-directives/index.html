@@ -103,14 +103,17 @@
         directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
         next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
         parent_node<span class="token punctuation">:</span> Union<span class="token punctuation">[</span><span class="token string">"FieldNode"</span><span class="token punctuation">,</span> <span class="token string">"DirectiveNode"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        argument_node<span class="token punctuation">:</span> <span class="token string">"ArgumentNode"</span><span class="token punctuation">,</span>
+        argument_definition_node<span class="token punctuation">:</span> <span class="token string">"InputValueDefinitionNode"</span><span class="token punctuation">,</span>
+        argument_node<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span><span class="token string">"ArgumentNode"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         value<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
         ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
         <span class="token comment">######################</span>
         <span class="token comment"># Add your code here #</span>
         <span class="token comment">######################</span>
-        <span class="token keyword">return</span> <span class="token keyword">await</span> next_directive<span class="token punctuation">(</span>parent_node<span class="token punctuation">,</span> argument_node<span class="token punctuation">,</span> value<span class="token punctuation">,</span> ctx<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> next_directive<span class="token punctuation">(</span>
+            parent_node<span class="token punctuation">,</span> argument_definition_node<span class="token punctuation">,</span> argument_node<span class="token punctuation">,</span> value<span class="token punctuation">,</span> ctx
+        <span class="token punctuation">)</span>
 
     <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_post_input_coercion</span><span class="token punctuation">(</span>
         self<span class="token punctuation">,</span>
