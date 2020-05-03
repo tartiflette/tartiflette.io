@@ -139,7 +139,7 @@ logger <span class="token operator">=</span> logging<span class="token punctuati
         self<span class="token punctuation">.</span>message <span class="token operator">=</span> message
 
 
-<span class="token keyword">def</span> <span class="token function">my_error_coercer</span><span class="token punctuation">(</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">my_error_coercer</span><span class="token punctuation">(</span>
     exception<span class="token punctuation">:</span> Exception<span class="token punctuation">,</span> error<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span>
 <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">:</span>
     <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>exception<span class="token punctuation">,</span> CustomException<span class="token punctuation">)</span><span class="token punctuation">:</span>
