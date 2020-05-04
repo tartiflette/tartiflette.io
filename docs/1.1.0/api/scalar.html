@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Scalar · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Tartiflette allows you to use your own `scalar` and even redefine the behavior of the built-in ones."/><meta name="docsearch:version" content="1.1.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Scalar · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="Tartiflette allows you to use your own `scalar` and even redefine the behavior of the built-in ones."/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-64443-60');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/tartiflette-white.svg" alt="Tartiflette GraphQL Python Engine"/><h2 class="headerTitleWithLogo">Tartiflette GraphQL Python Engine</h2></a><a href="/versions"><h3>1.1.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/1.1.0/welcome/what-is-tartiflette" target="_self">What is Tartiflette?</a></li><li class="siteNavGroupActive"><a href="/docs/1.1.0/tutorial/getting-started" target="_self">Tutorial</a></li><li class="siteNavGroupActive"><a href="/docs/1.1.0/api/engine" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/docs/1.1.0/plugins/introduction" target="_self">Plugins</a></li><li class=""><a href="/community" target="_self">Community</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.1.0/welcome/what-is-tartiflette">What is Tartiflette?</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/getting-started">1. Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/project-initialization">2. Project initialization</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/install-tartiflette">3. Install Tartiflette</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/create-server">4. Create a Tartiflette server</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/write-your-resolvers">5. Write your resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/running-a-query">6. Running a query</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/write-your-mutation-resolvers">7. Write your mutation resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/running-a-mutation">8. Running a mutation</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/add-subscription">9. Add subscription (advanced)</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/running-a-subscription">10. Running a subscription</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial (Advanced)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/extend-with-directives">11. Extend with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/rate-limit-fields-with-directives">12. Rate limit your fields with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/dynamic-introspection">13. Dynamic introspection</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/tutorial/use-with-docker">14. Use with Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api/engine">Engine</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api/execution">Execution</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api/resolver">Resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api/type-resolver">Type resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api/subscription">Subscription</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api/directive">Directive</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/1.1.0/api/scalar">Scalar</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api/error-handling">Error handling</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api/schema-registry">Schema Registry</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Plugins</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.1.0/plugins/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/plugins/create-a-plugin">Create a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/plugins/use-a-plugin">Use a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.1.0/plugins/currated-list">Plugin Index</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.1.0/migration-guides/migration-guide-0-0-to-1-0">Moving from v0.x.x to v1.0.x</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API (aiohttp)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.1.0/api-aiohttp/getting-started">Getting started</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/tartiflette/tartiflette/edit/master/docs/api/scalar.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Scalar</h1></header><article><div><span><p>Tartiflette allows you to use your own <code>scalar</code> and even redefine the behavior of the built-in ones.
+Your <code>scalar</code> will have to declare 3 methods <code>parse_literal</code>, <code>coerce_input</code> and <code>coerce_output</code>.</p>
+<p>Signatures of those methods should follow:</p>
+<ul>
+<li><code>parse_literal</code>:
+<pre><code class="hljs css language-python"><span class="token keyword">def</span> <span class="token function">parse_literal</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ast<span class="token punctuation">:</span> <span class="token string">"ValueNode"</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Union<span class="token punctuation">[</span>Any<span class="token punctuation">,</span> UNDEFINED_VALUE<span class="token punctuation">]</span><span class="token punctuation">:</span>
+</code></pre></li>
+<li><code>coerce_input</code>:
+<pre><code class="hljs css language-python"><span class="token keyword">def</span> <span class="token function">coerce_input</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+</code></pre></li>
+<li><code>coerce_output</code>:
+<pre><code class="hljs css language-python"><span class="token keyword">def</span> <span class="token function">coerce_output</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any
+</code></pre></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="parse_literal"></a><a href="#parse_literal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parse_literal</h3>
+<p>This method will be used to translate a literal value provided in the query/SDL into its Python representation.</p>
+<blockquote>
+<p>Notes: literal values are all values which are &quot;hard coded&quot; into a query/SDL such as argument value, default values...</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="coerce_input"></a><a href="#coerce_input" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>coerce_input</h3>
+<p>This method will be used to translate a variable value provided by the client into its Python representation.</p>
+<h3><a class="anchor" aria-hidden="true" id="coerce_output"></a><a href="#coerce_output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>coerce_output</h3>
+<p>This method will be used to translate a resolved field value into its final response result.</p>
+<p>This method should returns a JSON serializable value.</p>
+<h2><a class="anchor" aria-hidden="true" id="how-to-declare-a-new-scalar"></a><a href="#how-to-declare-a-new-scalar" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to declare a new scalar</h2>
+<p>In this example we will declare a new scalar that will transform &quot;anystring&quot; into &quot;Anystring&quot; and back.</p>
+<pre><code class="hljs css language-graphql"><span class="token keyword">scalar</span> <span class="token class-name">CapitalizedString</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Query</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">hello</span><span class="token punctuation">:</span> CapitalizedString
+<span class="token punctuation">}</span>
+</code></pre>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Any<span class="token punctuation">,</span> Union
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Scalar
+<span class="token keyword">from</span> tartiflette<span class="token punctuation">.</span>constants <span class="token keyword">import</span> UNDEFINED_VALUE
+<span class="token keyword">from</span> tartiflette<span class="token punctuation">.</span>language<span class="token punctuation">.</span>ast <span class="token keyword">import</span> StringValueNode
+
+
+@Scalar<span class="token punctuation">(</span><span class="token string">"CapitalizedString"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">ScalarCapitalizedString</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">coerce_output</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token comment"># Here `val` is what is returned by the resolver of a field having for type this scalar.</span>
+        <span class="token comment"># This method is expected to return a value that serializable, that will be returned to the caller.</span>
+        <span class="token keyword">return</span> <span class="token builtin">str</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">coerce_input</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token comment"># Argument value from the query are passed here in the `val` parameter.</span>
+        <span class="token comment"># This method is expected to return the value transformed into something usable by your code</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f"String cannot represent a non string value: &lt; </span><span class="token interpolation"><span class="token punctuation">{</span>value<span class="token punctuation">}</span></span><span class="token string"> >"</span></span>
+            <span class="token punctuation">)</span>
+        <span class="token keyword">return</span> value<span class="token punctuation">.</span>capitalized<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">parse_literal</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ast<span class="token punctuation">:</span> <span class="token string">"valueNode"</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Union<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token string">"UNDEFINED_VALUE"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> StringValueNode<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> ast<span class="token punctuation">.</span>value<span class="token punctuation">.</span>capitalized<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> UNDEFINED_VALUE
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="built-in-scalars"></a><a href="#built-in-scalars" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Built-in scalars</h2>
+<ul>
+<li><strong>ID</strong></li>
+<li><strong>Int</strong></li>
+<li><strong>String</strong></li>
+<li><strong>Float</strong></li>
+<li><strong>Boolean</strong></li>
+<li><strong>Date</strong></li>
+<li><strong>Time</strong></li>
+<li><strong>DateTime</strong></li>
+</ul>
+<p>You can redefine them at engine initialization time like:</p>
+<pre><code class="hljs css language-graphql"><span class="token keyword">scalar</span> <span class="token class-name">Int</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Query</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">hello</span><span class="token punctuation">:</span> Int
+<span class="token punctuation">}</span>
+</code></pre>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Any<span class="token punctuation">,</span> Callable<span class="token punctuation">,</span> Dict<span class="token punctuation">,</span> Optional
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Scalar<span class="token punctuation">,</span> create_engine
+
+
+@Scalar<span class="token punctuation">(</span><span class="token string">"Int"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">ScalarInt</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">coerce_output</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token comment"># Do what you want here</span>
+        <span class="token keyword">pass</span>
+
+    <span class="token keyword">def</span> <span class="token function">coerce_input</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token comment"># Do what you want here</span>
+        <span class="token keyword">pass</span>
+
+    <span class="token keyword">def</span> <span class="token function">parse_literal</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ast<span class="token punctuation">:</span> <span class="token string">"valueNode"</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Union<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token string">"UNDEFINED_VALUE"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token comment"># Do what you want here</span>
+        <span class="token keyword">pass</span>
+
+engine <span class="token operator">=</span> <span class="token keyword">await</span> create_engine<span class="token punctuation">(</span><span class="token string">"Your SDL..."</span><span class="token punctuation">)</span>
+</code></pre>
+<p>During the build process of the engine, Tartiflette will automaticaly detect that your code has its own implementation of a built-in scalar. It will replace its own implementation by yours.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/1.1.0/api/directive"><span class="arrow-prev">← </span><span>Directive</span></a><a class="docs-next button" href="/docs/1.1.0/api/error-handling"><span>Error handling</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#how-to-declare-a-new-scalar">How to declare a new scalar</a></li><li><a href="#built-in-scalars">Built-in scalars</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/tartiflette-square-t-white.svg" alt="Tartiflette GraphQL Python Engine" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/tutorial/getting-started">Tutorial</a><a href="/docs/en/api/engine">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/tartiflette" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="http://slack-tartiflette-io.herokuapp.com">Join us on Slack</a><a href="https://twitter.com/dailymotionEng" target="_blank" rel="noreferrer noopener">Twitter @dailymotionEng</a></div><div><h5>More</h5><a href="https://github.com/tartiflette/tartiflette">GitHub</a><a class="github-button" href="https://github.com/tartiflette/tartiflette" data-icon="octicon-star" data-count-href="/tartiflette/tartiflette/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://dailymotion.com" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dailymotion-white.svg" alt="Dailymotion"/></a><section class="copyright">Copyright © 2020 Dailymotion<br/>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '7703b63e56ba7316c49e8acae726a2ab',
+                indexName: 'tartiflette',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

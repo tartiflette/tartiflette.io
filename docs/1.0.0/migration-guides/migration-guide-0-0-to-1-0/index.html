@@ -268,7 +268,7 @@ class MyDirective:
 <span class="hljs-deletion">-       ctx: Optional[Any],</span>
 <span class="hljs-deletion">-       info: "Info",</span>
 <span class="hljs-addition">+       parent_node: Union["FieldNode", "DirectiveNode"],</span>
-<span class="hljs-addition">+       argument_node: "ArgumentNode",</span>
+<span class="hljs-addition">+       argument_node: Optional["ArgumentNode"],</span>
 <span class="hljs-addition">+       value: Any,</span>
 <span class="hljs-addition">+       ctx: Optional[Any],</span>
     ) -&gt; Any:
