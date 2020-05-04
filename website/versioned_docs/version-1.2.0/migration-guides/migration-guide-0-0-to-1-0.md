@@ -1,5 +1,5 @@
 ---
-id: version-1.0.0-migration-guide-0-0-to-1-0
+id: version-1.2.0-migration-guide-0-0-to-1-0
 title: Moving from v0.x.x to v1.0.x
 sidebar_label: Moving from v0.x.x to v1.0.x
 original_id: migration-guide-0-0-to-1-0
