@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: docker registry
-      uses: actions/docker/login@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      uses: actions/docker/login@master
       env:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -21,7 +21,7 @@ jobs:
         entrypoint: make
         args: import-docs
     - name: build docker image
-      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      uses: actions/docker/cli@master
       with:
         args: build -t tartiflette/tartiflette.io:latest .
     - name: is master
@@ -29,6 +29,6 @@ jobs:
       with:
         args: branch master
     - name: push
-      uses: actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108
+      uses: actions/docker/cli@master
       with:
         args: push tartiflette/tartiflette.io:latest
