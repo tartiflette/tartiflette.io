@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Rate limit your fields with directives · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Based [on what we discovered in the previous step](/docs/1.2.0/tutorial/extend-with-directives), we will extend the capabilities of our GraphQL API with the help of directives."/><meta name="docsearch:version" content="1.2.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Rate limit your fields with directives · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="Based [on what we discovered in the previous step](/docs/1.2.0/tutorial/extend-with-directives), we will extend the capabilities of our GraphQL API with the help of directives."/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-64443-60');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/tartiflette-white.svg" alt="Tartiflette GraphQL Python Engine"/><h2 class="headerTitleWithLogo">Tartiflette GraphQL Python Engine</h2></a><a href="/versions"><h3>1.2.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/1.2.0/welcome/what-is-tartiflette" target="_self">What is Tartiflette?</a></li><li class="siteNavGroupActive"><a href="/docs/1.2.0/tutorial/getting-started" target="_self">Tutorial</a></li><li class="siteNavGroupActive"><a href="/docs/1.2.0/api/engine" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/docs/1.2.0/plugins/introduction" target="_self">Plugins</a></li><li class=""><a href="/community" target="_self">Community</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Tutorial (Advanced)</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/welcome/what-is-tartiflette">What is Tartiflette?</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/getting-started">1. Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/project-initialization">2. Project initialization</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/install-tartiflette">3. Install Tartiflette</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/create-server">4. Create a Tartiflette server</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/write-your-resolvers">5. Write your resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/running-a-query">6. Running a query</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/write-your-mutation-resolvers">7. Write your mutation resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/running-a-mutation">8. Running a mutation</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/add-subscription">9. Add subscription (advanced)</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/running-a-subscription">10. Running a subscription</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial (Advanced)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/extend-with-directives">11. Extend with directives</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/1.2.0/tutorial/rate-limit-fields-with-directives">12. Rate limit your fields with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/dynamic-introspection">13. Dynamic introspection</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/use-with-docker">14. Use with Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/engine">Engine</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/execution">Execution</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/resolver">Resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/type-resolver">Type resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/subscription">Subscription</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/directive">Directive</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/scalar">Scalar</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/error-handling">Error handling</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/schema-registry">Schema Registry</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Plugins</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/plugins/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/plugins/create-a-plugin">Create a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/plugins/use-a-plugin">Use a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/plugins/currated-list">Plugin Index</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/migration-guides/migration-guide-0-0-to-1-0">Moving from v0.x.x to v1.0.x</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API (aiohttp)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api-aiohttp/getting-started">Getting started</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/tartiflette/tartiflette/edit/master/docs/tutorial/rate-limit-fields-with-directives.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Rate limit your fields with directives</h1></header><article><div><span><p>Based <a href="/docs/1.2.0/tutorial/extend-with-directives">on what we discovered in the previous step</a>, we will extend the capabilities of our GraphQL API with the help of directives.</p>
+<p>In our fabulous <strong>Tartiflette recipes manager</strong>, we want to limit the use of the recipe update by adding a rate limit behavior.</p>
+<p>This rate limiting will be added by extending our SDL by creating a new directive called <code>rateLimiting</code>. It will allow us to apply a rate limiting on whichever field we want.</p>
+<h2><a class="anchor" aria-hidden="true" id="write-code"></a><a href="#write-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Write code</h2>
+<h3><a class="anchor" aria-hidden="true" id="recipes_manager-sdl-mutationgraphql"></a><a href="#recipes_manager-sdl-mutationgraphql" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>recipes_manager/sdl/Mutation.graphql</code></h3>
+<p>Here is the new SDL for the mutation:</p>
+<pre><code class="hljs css language-graphql">directive <span class="token directive function">@rateLimiting</span><span class="token punctuation">(</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">maxAttempts</span><span class="token punctuation">:</span> Int<span class="token operator">!</span> <span class="token operator">=</span> <span class="token number">5</span>
+  <span class="token attr-name">duration</span><span class="token punctuation">:</span> Int<span class="token operator">!</span> <span class="token operator">=</span> <span class="token number">60</span>
+<span class="token punctuation">)</span> <span class="token keyword">on</span> <span class="token class-name">FIELD_DEFINITION</span>
+
+<span class="token keyword">input</span> RecipeInput <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> Int<span class="token operator">!</span>
+  <span class="token attr-name">name</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">cookingTime</span><span class="token punctuation">:</span> Int
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Mutation</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">updateRecipe</span><span class="token punctuation">(</span><span class="token attr-name">input</span><span class="token punctuation">:</span> RecipeInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> Recipe<span class="token operator">!</span> <span class="token directive function">@rateLimiting</span><span class="token punctuation">(</span><span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"update_recipe"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="recipes_manager-directives-rate_limitingpy"></a><a href="#recipes_manager-directives-rate_limitingpy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>recipes_manager/directives/rate_limiting.py</code></h3>
+<p>This file will contain our implementation of the <code>@rateLimiting</code> directive described previously.</p>
+<blockquote>
+<p>Note: This is a pretty simple implementation of rate limiting, built for our tutorial purpose, you should not use this dumb implementation in production.</p>
+</blockquote>
+<pre><code class="hljs css language-python"><span class="token keyword">import</span> time
+
+<span class="token keyword">from</span> typing <span class="token keyword">import</span> Any<span class="token punctuation">,</span> Callable<span class="token punctuation">,</span> Dict<span class="token punctuation">,</span> Optional
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Directive
+
+
+@Directive<span class="token punctuation">(</span><span class="token string">"rateLimiting"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">RateLimitingDirective</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Directive to rate limit the access to some fields.
+    """</span>
+
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>_rate_limit_rules <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token function">_set_new_rate_limit_rule</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> max_attempts<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> duration<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> nb_attempts<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Registers a new rate limit entry.
+        :param name: identifier of the rate limit
+        :param max_attempts: maximum allowed attempts during the duration
+        :param duration: interval before resetting the rate limiting
+        :param nb_attempts: number of attempts already made
+        :type name: str
+        :type max_attempts: int
+        :type duration: int
+        :type nb_attempts: int
+        """</span>
+        self<span class="token punctuation">.</span>_rate_limit_rules<span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"max_attempts"</span><span class="token punctuation">:</span> max_attempts<span class="token punctuation">,</span>
+            <span class="token string">"duration"</span><span class="token punctuation">:</span> duration<span class="token punctuation">,</span>
+            <span class="token string">"start_time"</span><span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token string">"nb_attempts"</span><span class="token punctuation">:</span> nb_attempts<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token keyword">def</span> <span class="token function">_rate_limit_check_and_bump</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span> name<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> max_attempts<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> duration<span class="token punctuation">:</span> <span class="token builtin">int</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">bool</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Increments the number of attempts and determines whether or not the
+        rate limit has been reached.
+        :param name: identifier of the rate limit
+        :param max_attempts: maximum allowed attempts during the duration
+        :param duration: interval before resetting the rate limiting
+        :type name: str
+        :type max_attempts: int
+        :type duration: int
+        :return: whether or not the rate limit has been reached
+        :rtype: bool
+        """</span>
+        rule <span class="token operator">=</span> self<span class="token punctuation">.</span>_rate_limit_rules<span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+
+        <span class="token keyword">if</span> <span class="token builtin">int</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token punctuation">(</span>rule<span class="token punctuation">[</span><span class="token string">"start_time"</span><span class="token punctuation">]</span> <span class="token operator">+</span> rule<span class="token punctuation">[</span><span class="token string">"duration"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>_set_new_rate_limit_rule<span class="token punctuation">(</span>
+                name<span class="token punctuation">,</span> max_attempts<span class="token punctuation">,</span> duration<span class="token punctuation">,</span> nb_attempts<span class="token operator">=</span><span class="token number">1</span>
+            <span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
+
+        self<span class="token punctuation">.</span>_rate_limit_rules<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"nb_attempts"</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+
+        <span class="token keyword">return</span> rule<span class="token punctuation">[</span><span class="token string">"nb_attempts"</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> rule<span class="token punctuation">[</span><span class="token string">"max_attempts"</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_field_execution</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_resolver<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        parent<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        info<span class="token punctuation">:</span> <span class="token string">"ResolveInfo"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        Checks that the user did not reach the rate limit before proceeding
+        with the execution and resolution of the field.
+        :param directive_args: computed arguments related to the directive
+        :param next_resolver: next resolver to call
+        :param parent: initial value filled in to the engine `execute` or
+        `subscribe` method or field parent value
+        :param args: computed arguments related to the field
+        :param ctx: context filled in at engine initialization
+        :param info: information related to the execution and field resolution
+        :type directive_args: Dict[str, Any]
+        :type next_resolver: Callable
+        :type parent: Optional[Any]
+        :type args: Dict[str, Any]
+        :type ctx: Dict[str, Any]
+        :type info: ResolveInfo
+        :return: result of the field resolution
+        :rtype: Any
+        :raises Exception: if the user has reached the rate limit
+        """</span>
+        <span class="token keyword">if</span> directive_args<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span> <span class="token keyword">not</span> <span class="token keyword">in</span> self<span class="token punctuation">.</span>_rate_limit_rules<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>_set_new_rate_limit_rule<span class="token punctuation">(</span>
+                directive_args<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                directive_args<span class="token punctuation">[</span><span class="token string">"maxAttempts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                directive_args<span class="token punctuation">[</span><span class="token string">"duration"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">)</span>
+
+        is_valid <span class="token operator">=</span> self<span class="token punctuation">.</span>_rate_limit_check_and_bump<span class="token punctuation">(</span>
+            directive_args<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            directive_args<span class="token punctuation">[</span><span class="token string">"maxAttempts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            directive_args<span class="token punctuation">[</span><span class="token string">"duration"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> is_valid<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"You reached the limit of the rate limiting"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token keyword">await</span> next_resolver<span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="how-can-we-test-it"></a><a href="#how-can-we-test-it" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How can we test it?</h2>
+<p>To simulate the rate limiting, make sure that your application is running, then execute the GraphQL request below.</p>
+<pre><code class="hljs css language-bash">python -m recipes_manager
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="graphql-query"></a><a href="#graphql-query" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GraphQL Query</h3>
+<pre><code class="hljs css language-graphql"><span class="token keyword">mutation</span> <span class="token punctuation">{</span>
+  updateRecipe<span class="token punctuation">(</span><span class="token attr-name">input</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token attr-name">id</span><span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token attr-name">name</span><span class="token punctuation">:</span> <span class="token string">"The best Tartiflette by Eric Guelpa"</span>
+    <span class="token attr-name">cookingTime</span><span class="token punctuation">:</span> <span class="token number">12</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    name
+    cookingTime
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Execute the query 6 times and you will notice you have been rate limited. :tada:</p>
+<p><img src="/docs/assets/ratelimiting.gif" alt="Rate limiting demo"></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/1.2.0/tutorial/extend-with-directives"><span class="arrow-prev">← </span><span>11. Extend with directives</span></a><a class="docs-next button" href="/docs/1.2.0/tutorial/dynamic-introspection"><span>13. Dynamic introspection</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#write-code">Write code</a><ul class="toc-headings"><li><a href="#recipes_manager-sdl-mutationgraphql"><code>recipes_manager/sdl/Mutation.graphql</code></a></li><li><a href="#recipes_manager-directives-rate_limitingpy"><code>recipes_manager/directives/rate_limiting.py</code></a></li></ul></li><li><a href="#how-can-we-test-it">How can we test it?</a><ul class="toc-headings"><li><a href="#graphql-query">GraphQL Query</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/tartiflette-square-t-white.svg" alt="Tartiflette GraphQL Python Engine" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/tutorial/getting-started">Tutorial</a><a href="/docs/en/api/engine">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/tartiflette" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="http://slack-tartiflette-io.herokuapp.com">Join us on Slack</a><a href="https://twitter.com/dailymotionEng" target="_blank" rel="noreferrer noopener">Twitter @dailymotionEng</a></div><div><h5>More</h5><a href="https://github.com/tartiflette/tartiflette">GitHub</a><a class="github-button" href="https://github.com/tartiflette/tartiflette" data-icon="octicon-star" data-count-href="/tartiflette/tartiflette/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://dailymotion.com" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dailymotion-white.svg" alt="Dailymotion"/></a><section class="copyright">Copyright © 2021 Dailymotion<br/>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '7703b63e56ba7316c49e8acae726a2ab',
+                indexName: 'tartiflette',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

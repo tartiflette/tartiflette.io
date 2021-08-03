@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Moving from v0.x.x to v1.0.x · Tartiflette GraphQL Python Engine</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Miscellaneous"/><meta name="docsearch:version" content="1.2.0"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Moving from v0.x.x to v1.0.x · Tartiflette GraphQL Python Engine"/><meta property="og:type" content="website"/><meta property="og:url" content="https://tartiflette.io/"/><meta property="og:description" content="## Miscellaneous"/><meta property="og:image" content="https://tartiflette.io/img/tartiflette.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://tartiflette.io/img/tartiflette.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-64443-60"></script><script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', 'UA-64443-60');
+            </script><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/tartiflette-white.svg" alt="Tartiflette GraphQL Python Engine"/><h2 class="headerTitleWithLogo">Tartiflette GraphQL Python Engine</h2></a><a href="/versions"><h3>1.2.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/1.2.0/welcome/what-is-tartiflette" target="_self">What is Tartiflette?</a></li><li class="siteNavGroupActive"><a href="/docs/1.2.0/tutorial/getting-started" target="_self">Tutorial</a></li><li class="siteNavGroupActive"><a href="/docs/1.2.0/api/engine" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/docs/1.2.0/plugins/introduction" target="_self">Plugins</a></li><li class=""><a href="/community" target="_self">Community</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Migration Guides</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Welcome</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/welcome/what-is-tartiflette">What is Tartiflette?</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/getting-started">1. Getting started</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/project-initialization">2. Project initialization</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/install-tartiflette">3. Install Tartiflette</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/create-server">4. Create a Tartiflette server</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/write-your-resolvers">5. Write your resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/running-a-query">6. Running a query</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/write-your-mutation-resolvers">7. Write your mutation resolvers</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/running-a-mutation">8. Running a mutation</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/add-subscription">9. Add subscription (advanced)</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/running-a-subscription">10. Running a subscription</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial (Advanced)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/extend-with-directives">11. Extend with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/rate-limit-fields-with-directives">12. Rate limit your fields with directives</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/dynamic-introspection">13. Dynamic introspection</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/tutorial/use-with-docker">14. Use with Docker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/engine">Engine</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/execution">Execution</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/resolver">Resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/type-resolver">Type resolver</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/subscription">Subscription</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/directive">Directive</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/scalar">Scalar</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/error-handling">Error handling</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api/schema-registry">Schema Registry</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Plugins</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/plugins/introduction">Introduction</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/plugins/create-a-plugin">Create a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/plugins/use-a-plugin">Use a plugin</a></li><li class="navListItem"><a class="navItem" href="/docs/1.2.0/plugins/currated-list">Plugin Index</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Migration Guides</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/1.2.0/migration-guides/migration-guide-0-0-to-1-0">Moving from v0.x.x to v1.0.x</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API (aiohttp)</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/1.2.0/api-aiohttp/getting-started">Getting started</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/tartiflette/tartiflette/edit/master/docs/migration-guides/migration-guide-0-0-to-1-0.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Moving from v0.x.x to v1.0.x</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="miscellaneous"></a><a href="#miscellaneous" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Miscellaneous</h2>
+<h3><a class="anchor" aria-hidden="true" id="engine_coercer-has-to-be-asynchronous"></a><a href="#engine_coercer-has-to-be-asynchronous" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>engine_coercer</code> has to be asynchronous</h3>
+<p>The <a href="/docs/1.2.0/api/error-handling#advanced-add-a-global-error-coercer"><code>error_coercer</code></a> parameter now expects an asynchronous function instead of a synchronous function.</p>
+<p>If you are using this advanced feature in your project you have to convert your synchronous function into an asynchronous one in order to make your project compliant with Tartiflette <code>v1.x.x</code>.</p>
+<p>Taking in example the following error coercer:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any
+
+
+<span class="token keyword">class</span> <span class="token class-name">MyCustomException</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+
+<span class="token keyword">def</span> <span class="token function">my_error_coercer</span><span class="token punctuation">(</span>
+    exception<span class="token punctuation">:</span> Exception<span class="token punctuation">,</span> error<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span>
+<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>exception<span class="token punctuation">,</span> MyCustomException<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        error<span class="token punctuation">[</span><span class="token string">"extensions"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"type"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"custom_exception"</span>
+    <span class="token keyword">return</span> error
+</code></pre>
+<p>You just have to convert the function as an asynchronous one:</p>
+<pre><code class="hljs css language-patch"><span class="hljs-deletion">-def my_error_coercer(</span>
+<span class="hljs-addition">+async def my_error_coercer(</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="strong-distinction-between-non-supplied-values-and-null-values"></a><a href="#strong-distinction-between-non-supplied-values-and-null-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Strong distinction between non-supplied values and <code>null</code> values</h3>
+<p>We now make a strong distinction between non-supplied values and <code>null</code> values. This is to avoid passing <code>null</code> value when a value has not been supplied (especially for arguments). This modification can have an impact on your resolvers and directives hooks implementations.</p>
+<p>Taking in example the following SDL:</p>
+<pre><code class="hljs css language-graphql"><span class="token keyword">type</span> <span class="token class-name">News</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">id</span><span class="token punctuation">:</span> Int<span class="token operator">!</span>
+  <span class="token attr-name">title</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">resume</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">content</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">input</span> AddNewsInput <span class="token punctuation">{</span>
+  <span class="token attr-name">title</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+  <span class="token attr-name">resume</span><span class="token punctuation">:</span> String
+  <span class="token attr-name">content</span><span class="token punctuation">:</span> String<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Mutation</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">addNews</span><span class="token punctuation">(</span><span class="token attr-name">input</span><span class="token punctuation">:</span> AddNewsInput<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> News<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>With the following resolver implementation:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Resolver
+
+
+<span class="token keyword">def</span> <span class="token function">insert_news_to_db</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Write your business logic here</span>
+    <span class="token keyword">return</span> <span class="token number">1</span>
+
+
+@Resolver<span class="token punctuation">(</span><span class="token string">"Mutation.addNews"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">resolve_mutation_add_news</span><span class="token punctuation">(</span>parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    news_id <span class="token operator">=</span> insert_news_to_db<span class="token punctuation">(</span>args<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token string">"id"</span><span class="token punctuation">:</span> news_id<span class="token punctuation">,</span>
+        <span class="token string">"title"</span><span class="token punctuation">:</span> args<span class="token punctuation">[</span><span class="token string">"input"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"title"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"resume"</span><span class="token punctuation">:</span> args<span class="token punctuation">[</span><span class="token string">"input"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"resume"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">"content"</span><span class="token punctuation">:</span> args<span class="token punctuation">[</span><span class="token string">"input"</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"content"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>With the following GraphQL request:</p>
+<pre><code class="hljs css language-graphql"><span class="token keyword">mutation</span> <span class="token punctuation">{</span>
+  addNews<span class="token punctuation">(</span><span class="token attr-name">input</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token attr-name">title</span><span class="token punctuation">:</span> <span class="token string">"Title"</span><span class="token punctuation">,</span> <span class="token attr-name">content</span><span class="token punctuation">:</span> <span class="token string">"Content"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    title
+    resume
+    content
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In Tartiflette <code>v1.0.0</code>, a <code>KeyError</code> exception will be raised in the <code>resolve_mutation_add_news</code> function since <code>resume</code> input field hasn't been supplied, meaning the key isn't present in the <code>args[&quot;input&quot;]</code> dictionnary.</p>
+<p>This is the patch of the <code>args</code> dictionary content between <code>v0.x.x</code> and <code>v1.x.x</code> for the previous request:</p>
+<pre><code class="hljs css language-patch"><span class="hljs-deletion">-{"input": {"title": "Title", "resume": None, "content": "Content"}}</span>
+<span class="hljs-addition">+{"input": {"title": "Title", "content": "Content"}}</span>
+</code></pre>
+<p>This means that if you were used to &quot;hard&quot; access your arguments (especially the nullable ones) you should be careful to your resolvers and directive hooks implementations. The same way, previously you couldn't trust the <code>None</code> value you could encouter on your <code>args</code> values. Now, you can trust them. If you have a <code>None</code> value on one of your arguments, that means it has been filled in by the user as <code>null</code> in the request.</p>
+<p>For instance, if we make this request:</p>
+<pre><code class="hljs css language-graphql"><span class="token keyword">mutation</span> <span class="token punctuation">{</span>
+  addNews<span class="token punctuation">(</span><span class="token attr-name">input</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token attr-name">title</span><span class="token punctuation">:</span> <span class="token string">"Title"</span><span class="token punctuation">,</span> <span class="token attr-name">resume</span><span class="token punctuation">:</span> null<span class="token punctuation">,</span> <span class="token attr-name">content</span><span class="token punctuation">:</span> <span class="token string">"Content"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    id
+    title
+    resume
+    content
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>You'll have <code>{&quot;input&quot;: {&quot;title&quot;: &quot;Title&quot;, &quot;resume&quot;: None, &quot;content&quot;: &quot;Content&quot;}}</code> as <code>args</code> value in both <code>v0.x.x</code> and <code>v1.x.x</code> versions.</p>
+<p>This behaviour follow the <a href="https://graphql.github.io/graphql-spec/June2018/">June 2018 GraphQL specification</a> as describe in the <strong>Input Coercion</strong> part of <strong><a href="https://graphql.github.io/graphql-spec/June2018/#sec-Scalars">Scalars</a></strong> specification:</p>
+<blockquote>
+<p>For all types below, with the exception of Non‐Null, if the explicit value null is provided, then the result of input coercion is null.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="subscriptions-no-longer-have-a-specific-default-resolver"></a><a href="#subscriptions-no-longer-have-a-specific-default-resolver" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Subscriptions no longer have a specific default resolver</h3>
+<p>The <code>@Subscription</code> decorator no longer has its specific default resolver. This means that the messages returned by <code>@Subscription</code> will no longer be wrapped with the field name as before (when the field doesn't have a dedicated <code>@Resolver</code>).</p>
+<p>On older versions, subscriptions had a specific default resolver aimaing to automatically wrap the result of each message comming from the subscription in a dictionnary such as: <code>{field_name: message}</code>. This behaviour wasn't compliant with the GraphQL specification and has been removed.</p>
+<p>However, this occurs only of subscriptions which hasn't a dedicated <code>@Resolver</code>. If you have some subscriptions implemented which have also a <code>@Resolver</code> this will not have any impact for you. If not, follow the following steps.</p>
+<p>Taking in example the following SDL:</p>
+<pre><code class="hljs css language-graphql"><span class="token keyword">enum</span> <span class="token class-name">CookingStatus</span> <span class="token punctuation">{</span>
+  <span class="token constant">COOKING</span>
+  <span class="token constant">COOKED</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">CookingTimer</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">remainingTime</span><span class="token punctuation">:</span> Int<span class="token operator">!</span>
+  <span class="token attr-name">status</span><span class="token punctuation">:</span> CookingStatus<span class="token operator">!</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Subscription</span> <span class="token punctuation">{</span>
+  <span class="token attr-name">launchAndWaitCookingTimer</span><span class="token punctuation">(</span><span class="token attr-name">id</span><span class="token punctuation">:</span> Int<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">:</span> CookingTimer
+<span class="token punctuation">}</span>
+</code></pre>
+<p>With the following subscription implementation:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Subscription
+
+
+@Subscription<span class="token punctuation">(</span><span class="token string">"Subscription.launchAndWaitCookingTimer"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">subscribe_subscription_launch_and_wait_cooking_timer</span><span class="token punctuation">(</span>
+    parent<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">yield</span> <span class="token punctuation">{</span><span class="token string">"remainingTime"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"status"</span><span class="token punctuation">:</span> <span class="token string">"COOKED"</span><span class="token punctuation">}</span>
+</code></pre>
+<p>You just have to wrap the returned messages into the field name by yourself:</p>
+<pre><code class="hljs css language-patch"><span class="hljs-deletion">-   yield {"remainingTime": 0, "status": "COOKED"}</span>
+<span class="hljs-addition">+   yield {"launchAndWaitCookingTimer": {"remainingTime": 0, "status": "COOKED"}}</span>
+</code></pre>
+<p>This modification has been made to be compliant with the <a href="https://graphql.github.io/graphql-spec/June2018/">June 2018 GraphQL specification</a> and the <a href="https://graphql.github.io/graphql-spec/June2018/#Subscribe()"><code>Subscribe</code></a> algorithm.</p>
+<h3><a class="anchor" aria-hidden="true" id="the-shape-of-the-info-parameter-has-changed"></a><a href="#the-shape-of-the-info-parameter-has-changed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The shape of the <code>info</code> parameter has changed</h3>
+<p>The shape of the <a href="/docs/1.2.0/api/resolver#resolver-info-argument"><code>info</code></a> parameter accessible in particular in the resolvers and some hooks of directives has been completely changed:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">class</span> <span class="token class-name">Info</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        query_field<span class="token punctuation">:</span> <span class="token string">"NodeField"</span><span class="token punctuation">,</span>
+        schema_field<span class="token punctuation">:</span> <span class="token string">"GraphQLField"</span><span class="token punctuation">,</span>
+        schema<span class="token punctuation">:</span> <span class="token string">"GraphQLSchema"</span><span class="token punctuation">,</span>
+        path<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        location<span class="token punctuation">:</span> <span class="token string">"Location"</span><span class="token punctuation">,</span>
+        execution_ctx<span class="token punctuation">:</span> ExecutionContext<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>query_field <span class="token operator">=</span> query_field
+        self<span class="token punctuation">.</span>schema_field <span class="token operator">=</span> schema_field
+        self<span class="token punctuation">.</span>schema <span class="token operator">=</span> schema
+        self<span class="token punctuation">.</span>path <span class="token operator">=</span> path
+        self<span class="token punctuation">.</span>location <span class="token operator">=</span> location
+        self<span class="token punctuation">.</span>execution_ctx <span class="token operator">=</span> execution_ctx
+</code></pre>
+<pre><code class="hljs css language-patch"><span class="hljs-deletion">-class Info:</span>
+<span class="hljs-addition">+class ResolveInfo:</span>
+    def __init__(
+        self,
+<span class="hljs-deletion">-       query_field: "NodeField",</span>
+<span class="hljs-deletion">-       schema_field: "GraphQLField",</span>
+<span class="hljs-deletion">-       schema: "GraphQLSchema",</span>
+<span class="hljs-deletion">-       path: List[str],</span>
+<span class="hljs-deletion">-       location: "Location",</span>
+<span class="hljs-deletion">-       execution_ctx: ExecutionContext,</span>
+<span class="hljs-addition">+       field_name: str,</span>
+<span class="hljs-addition">+       field_nodes: List["FieldNodes"],</span>
+<span class="hljs-addition">+       return_type: "GraphQLOutputType",</span>
+<span class="hljs-addition">+       parent_type: "GraphQLObjectType",</span>
+<span class="hljs-addition">+       path: "Path",</span>
+<span class="hljs-addition">+       schema: "GraphQLSchema",</span>
+<span class="hljs-addition">+       fragments: Dict[str, "FragmentDefinitionNode"],</span>
+<span class="hljs-addition">+       root_value: Optional[Any],</span>
+<span class="hljs-addition">+       operation: "OperationDefinitionNode",</span>
+<span class="hljs-addition">+       variable_values: Optional[Dict[str, Any]],</span>
+<span class="hljs-addition">+       is_introspection_context: bool,</span>
+    ) -&gt; None:
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="directives"></a><a href="#directives" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Directives</h2>
+<p>The signature of some directive hooks has been changed:</p>
+<ul>
+<li><a href="#on_argument_execution"><code>on_argument_execution</code></a></li>
+<li><a href="#on_argument_execution"><code>on_post_input_coercion</code></a></li>
+<li><a href="#on_pre_output_coercion"><code>on_pre_output_coercion</code></a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="on_argument_execution"></a><a href="#on_argument_execution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>on_argument_execution</code></h3>
+<p>Taking in example the following directive implementing the <code>on_argument_execution</code> hook directive:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any<span class="token punctuation">,</span> Callable<span class="token punctuation">,</span> Optional
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Directive
+
+
+@Directive<span class="token punctuation">(</span><span class="token string">"MyDirective"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyDirective</span><span class="token punctuation">:</span>
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_argument_execution</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        argument_definition<span class="token punctuation">:</span> <span class="token string">"GraphQLArgument"</span><span class="token punctuation">,</span>
+        args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        info<span class="token punctuation">:</span> <span class="token string">"Info"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment"># Write your business logic here</span>
+        <span class="token keyword">return</span> next_directive<span class="token punctuation">(</span>argument_definition<span class="token punctuation">,</span> args<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+</code></pre>
+<p>In order to make this hook directive implementation compatible with Tartiflette <code>v1.x.x</code>, please follow the following <code>patch</code>:</p>
+<pre><code class="hljs css language-patch">@Directive("MyDirective")
+class MyDirective:
+    async def on_argument_execution(
+        self,
+        directive_args: Dict[str, Any],
+        next_directive: Callable,
+<span class="hljs-deletion">-       argument_definition: "GraphQLArgument",</span>
+<span class="hljs-deletion">-       args: Dict[str, Any],</span>
+<span class="hljs-deletion">-       ctx: Optional[Any],</span>
+<span class="hljs-deletion">-       info: "Info",</span>
+<span class="hljs-addition">+       parent_node: Union["FieldNode", "DirectiveNode"],</span>
+<span class="hljs-addition">+       argument_node: Optional["ArgumentNode"],</span>
+<span class="hljs-addition">+       value: Any,</span>
+<span class="hljs-addition">+       ctx: Optional[Any],</span>
+    ) -&gt; Any:
+        # Write your business logic here
+<span class="hljs-deletion">-       return next_directive(argument_definition, args, ctx, info)</span>
+<span class="hljs-addition">+       return next_directive(parent_node, argument_node, value, ctx)</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="on_post_input_coercion"></a><a href="#on_post_input_coercion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>on_post_input_coercion</code></h3>
+<p>Taking in example the following directive implementing the <code>on_post_input_coercion</code> hook directive:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any<span class="token punctuation">,</span> Callable<span class="token punctuation">,</span> Optional
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Directive
+
+
+@Directive<span class="token punctuation">(</span><span class="token string">"MyDirective"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyDirective</span><span class="token punctuation">:</span>
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_post_input_coercion</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        value<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+        argument_definition<span class="token punctuation">:</span> <span class="token string">"GraphQLArgument"</span><span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        info<span class="token punctuation">:</span> <span class="token string">"Info"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment"># Write your business logic here</span>
+        <span class="token keyword">return</span> next_directive<span class="token punctuation">(</span>value<span class="token punctuation">,</span> argument_definition<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+</code></pre>
+<p>In order to make this hook directive implementation compatible with Tartiflette <code>v1.x.x</code>, please follow the following <code>patch</code>:</p>
+<pre><code class="hljs css language-patch">@Directive("MyDirective")
+class MyDirective:
+    async def on_post_input_coercion(
+        self,
+        directive_args: Dict[str, Any],
+        next_directive: Callable,
+<span class="hljs-deletion">-       value: Any,</span>
+<span class="hljs-deletion">-       argument_definition: "GraphQLArgument",</span>
+<span class="hljs-deletion">-       ctx: Optional[Any],</span>
+<span class="hljs-deletion">-       info: "Info",</span>
+<span class="hljs-addition">+       parent_node: Union["VariableDefinitionNode", "InputValueDefinitionNode"],</span>
+<span class="hljs-addition">+       value: Any,</span>
+<span class="hljs-addition">+       ctx: Optional[Any],</span>
+    ) -&gt; Any:
+        # Write your business logic here
+<span class="hljs-deletion">-       return next_directive(value, argument_definition, ctx, info)</span>
+<span class="hljs-addition">+       return next_directive(parent_node, value, ctx)</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="on_pre_output_coercion"></a><a href="#on_pre_output_coercion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>on_pre_output_coercion</code></h3>
+<p>Taking in example the following directive implementing the <code>on_pre_output_coercion</code> hook directive:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Dict<span class="token punctuation">,</span> Any<span class="token punctuation">,</span> Callable<span class="token punctuation">,</span> Optional
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Directive
+
+
+@Directive<span class="token punctuation">(</span><span class="token string">"MyDirective"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">MyDirective</span><span class="token punctuation">:</span>
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_pre_output_coercion</span><span class="token punctuation">(</span>
+        self<span class="token punctuation">,</span>
+        directive_args<span class="token punctuation">:</span> Dict<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        next_directive<span class="token punctuation">:</span> Callable<span class="token punctuation">,</span>
+        value<span class="token punctuation">:</span> Any<span class="token punctuation">,</span>
+        field_definition<span class="token punctuation">:</span> <span class="token string">"GraphQLField"</span><span class="token punctuation">,</span>
+        ctx<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>Any<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        info<span class="token punctuation">:</span> <span class="token string">"Info"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Any<span class="token punctuation">:</span>
+        <span class="token comment"># Write your business logic here</span>
+        <span class="token keyword">return</span> next_directive<span class="token punctuation">(</span>value<span class="token punctuation">,</span> field_definition<span class="token punctuation">,</span> ctx<span class="token punctuation">,</span> info<span class="token punctuation">)</span>
+
+</code></pre>
+<p>In order to make this hook directive implementation compatible with Tartiflette <code>v1.x.x</code>, please follow the following <code>patch</code>:</p>
+<pre><code class="hljs css language-patch">@Directive("MyDirective")
+class MyDirective:
+    async def on_pre_output_coercion(
+        self,
+        directive_args: Dict[str, Any],
+        next_directive: Callable,
+        value: Any,
+<span class="hljs-deletion">-       field_definition: "GraphQLField",</span>
+        ctx: Optional[Any],
+<span class="hljs-deletion">-       info: "Info",</span>
+<span class="hljs-addition">+       info: "ResolveInfo",</span>
+    ) -&gt; Any:
+        # Write your business logic here
+<span class="hljs-deletion">-       return next_directive(value, field_definition, ctx, info)</span>
+<span class="hljs-addition">+       return next_directive(value, ctx, info)</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="scalar-definitions"></a><a href="#scalar-definitions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scalar definitions</h2>
+<p>Scalar definition now requires the implementation of a third <code>parse_literal</code> method.</p>
+<p>Taking in example the following scalar definition:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Any<span class="token punctuation">,</span> Union
+
+<span class="token keyword">from</span> tartiflette <span class="token keyword">import</span> Scalar
+<span class="token keyword">from</span> tartiflette<span class="token punctuation">.</span>constants <span class="token keyword">import</span> UNDEFINED_VALUE
+<span class="token keyword">from</span> tartiflette<span class="token punctuation">.</span>language<span class="token punctuation">.</span>ast <span class="token keyword">import</span> StringValueNode
+
+
+@Scalar<span class="token punctuation">(</span><span class="token string">"String"</span><span class="token punctuation">)</span>
+<span class="token keyword">class</span> <span class="token class-name">ScalarString</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">coerce_output</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token builtin">str</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">coerce_input</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">:</span> Any<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token keyword">not</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> TypeError<span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f"String cannot represent a non string value: &lt; </span><span class="token interpolation"><span class="token punctuation">{</span>value<span class="token punctuation">}</span></span><span class="token string"> >."</span></span>
+            <span class="token punctuation">)</span>
+        <span class="token keyword">return</span> value
+</code></pre>
+<p>From Tartiflette <code>v1.x.x</code>, we have split the input coercion in two methods. Variables values are coerced through the <code>coerce_input</code> method, while literal values (value from the query itself) are coerced through the new <code>parse_literal</code> method.</p>
+<p>So, the aim of the <code>parse_literal</code> method is to coerce an <code>ast</code> node into a Python value.</p>
+<p>In order to make this hook directive implementation compatible with Tartiflette <code>v1.x.x</code>, you have to implements a third <code>parse_literal</code> method which follow this method signature:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">def</span> <span class="token function">parse_literal</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ast<span class="token punctuation">:</span> <span class="token string">"Node"</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Union<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token string">"UNDEFINED_VALUE"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+</code></pre>
+<p>In our example, the <code>parse_literal</code> method would look like this:</p>
+<pre><code class="hljs css language-python"><span class="token keyword">def</span> <span class="token function">parse_literal</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ast<span class="token punctuation">:</span> <span class="token string">"Node"</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> Union<span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token string">"UNDEFINED_VALUE"</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>ast<span class="token punctuation">,</span> StringValueNode<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ast<span class="token punctuation">.</span>value
+    <span class="token keyword">return</span> UNDEFINED_VALUE
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/1.2.0/plugins/currated-list"><span class="arrow-prev">← </span><span>Plugin Index</span></a><a class="docs-next button" href="/docs/1.2.0/api-aiohttp/getting-started"><span>Getting started</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#miscellaneous">Miscellaneous</a><ul class="toc-headings"><li><a href="#engine_coercer-has-to-be-asynchronous"><code>engine_coercer</code> has to be asynchronous</a></li><li><a href="#strong-distinction-between-non-supplied-values-and-null-values">Strong distinction between non-supplied values and <code>null</code> values</a></li><li><a href="#subscriptions-no-longer-have-a-specific-default-resolver">Subscriptions no longer have a specific default resolver</a></li><li><a href="#the-shape-of-the-info-parameter-has-changed">The shape of the <code>info</code> parameter has changed</a></li></ul></li><li><a href="#directives">Directives</a><ul class="toc-headings"><li><a href="#on_argument_execution"><code>on_argument_execution</code></a></li><li><a href="#on_post_input_coercion"><code>on_post_input_coercion</code></a></li><li><a href="#on_pre_output_coercion"><code>on_pre_output_coercion</code></a></li></ul></li><li><a href="#scalar-definitions">Scalar definitions</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/tartiflette-square-t-white.svg" alt="Tartiflette GraphQL Python Engine" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/tutorial/getting-started">Tutorial</a><a href="/docs/en/api/engine">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/tartiflette" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="http://slack-tartiflette-io.herokuapp.com">Join us on Slack</a><a href="https://twitter.com/dailymotionEng" target="_blank" rel="noreferrer noopener">Twitter @dailymotionEng</a></div><div><h5>More</h5><a href="https://github.com/tartiflette/tartiflette">GitHub</a><a class="github-button" href="https://github.com/tartiflette/tartiflette" data-icon="octicon-star" data-count-href="/tartiflette/tartiflette/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://dailymotion.com" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/dailymotion-white.svg" alt="Dailymotion"/></a><section class="copyright">Copyright © 2021 Dailymotion<br/>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '7703b63e56ba7316c49e8acae726a2ab',
+                indexName: 'tartiflette',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
